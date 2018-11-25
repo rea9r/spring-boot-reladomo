@@ -1,8 +1,8 @@
-package com.amtkxa.springbootreladomo.domain;
+package com.amtkxa.springbootreladomo.domain.model;
 import java.sql.Timestamp;
-public class Item extends ItemAbstract
+public class SalesOrderLine extends SalesOrderLineAbstract
 {
-	public Item(Timestamp processingDate
+	public SalesOrderLine(Timestamp processingDate
 	)
 	{
 		super(processingDate
@@ -11,7 +11,7 @@ public class Item extends ItemAbstract
 		// You can call this constructor. You can also add new constructors.
 	}
 
-	public Item()
+	public SalesOrderLine()
 	{
 		this(com.gs.fw.common.mithra.util.DefaultInfinityTimestamp.getDefaultInfinity());
 	}

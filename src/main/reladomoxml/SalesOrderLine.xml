@@ -1,7 +1,7 @@
 <MithraObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               objectType="transactional"
               xsi:noNamespaceSchemaLocation="config/mithraobject.xsd">
-    <PackageName>com.amtkxa.springbootreladomo.domain</PackageName>
+    <PackageName>com.amtkxa.springbootreladomo.domain.model</PackageName>
     <ClassName>SalesOrderLine</ClassName>
     <DefaultTable>SALES_ORDER_LINE</DefaultTable>
 

@@ -1,4 +1,4 @@
-package com.amtkxa.springbootreladomo.domain;
+package com.amtkxa.springbootreladomo.domain.model;
 import java.sql.Timestamp;
 public class SalesOrder extends SalesOrderAbstract
 {

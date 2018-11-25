@@ -1,4 +1,4 @@
-package com.amtkxa.springbootreladomo.domain;
+package com.amtkxa.springbootreladomo.domain.model;
 import com.gs.fw.finder.Operation;
 import java.util.*;
 public class SalesOrderLineList extends SalesOrderLineListAbstract
