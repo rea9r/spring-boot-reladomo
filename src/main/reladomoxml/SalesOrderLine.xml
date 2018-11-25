@@ -2,8 +2,8 @@
               objectType="transactional"
               xsi:noNamespaceSchemaLocation="config/mithraobject.xsd">
     <PackageName>com.amtkxa.springbootreladomo.domain</PackageName>
-    <ClassName>SalesOrder</ClassName>
-    <DefaultTable>SALES_ORDER</DefaultTable>
+    <ClassName>SalesOrderLine</ClassName>
+    <DefaultTable>SALES_ORDER_LINE</DefaultTable>
 
     <AsOfAttribute name="processingDate" fromColumnName="PROCESSING_DATE_FROM" toColumnName="PROCESSING_DATE_TO"
                    toIsInclusive="false"
@@ -12,15 +12,11 @@
                    defaultIfNotSpecified="[com.gs.fw.common.mithra.util.DefaultInfinityTimestamp.getDefaultInfinity()]"
     />
 
+    <Attribute name="orderLineId" javaType="int"
+               columnName="ORDER_LINE_ID" primaryKey="true"/>
     <Attribute name="orderId" javaType="int"
-               columnName="ORDER_ID" primaryKey="true"/>
-    <Attribute name="orderDate" javaType="Date"
-               columnName="ORDER_DATE"/>
-    <Attribute name="customerId" javaType="int"
-               columnName="CUSTOMER_ID"/>
+               columnName="ORDER_ID"/>
+    <Attribute name="itemId" javaType="int"
+               columnName="ITEM_ID"/>
 
-    <Relationship name="salesOrderLine" relatedObject="SalesOrderLine" cardinality="one-to-many"
-                  reverseRelationshipName="salesOrder" relatedIsDependent="true">
-        this.orderId = SalesOrderLine.orderId
-    </Relationship>
 </MithraObject>
