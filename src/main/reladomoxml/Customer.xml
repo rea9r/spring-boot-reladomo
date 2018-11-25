@@ -1,0 +1,15 @@
+<MithraObject objectType="transactional"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="config/mithraobject.xsd">
+    <PackageName>com.amtkxa.springbootreladomo.domain</PackageName>
+    <ClassName>Customer</ClassName>
+    <DefaultTable>CUSTOMER</DefaultTable>
+    <Attribute name="customerId" javaType="int"
+               columnName="CUSTOMER_ID" primaryKey="true"/>
+    <Attribute name="firstName" javaType="String"
+               columnName="FIRST_NAME" nullable="false" maxLength="64"/>
+    <Attribute name="lastName" javaType="String"
+               columnName="LAST_NAME" nullable="false" maxLength="64"/>
+    <Attribute name="country" javaType="String"
+               columnName="COUNTRY" nullable="false" maxLength="48"/>
+</MithraObject>
