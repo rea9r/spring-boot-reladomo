@@ -1,0 +1,12 @@
+<MithraRuntime xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="mithraruntime.xsd">
+    <ConnectionManager className="com.amtkxa.springbootreladomo.util.DBConnectionManager">
+        <MithraObjectConfiguration className="com.amtkxa.springbootreladomo.domain.model.Customer"
+                                   cacheType="partial"/>
+        <MithraObjectConfiguration className="com.amtkxa.springbootreladomo.domain.model.SalesOrder"
+                                   cacheType="partial"/>
+        <MithraObjectConfiguration className="com.amtkxa.springbootreladomo.domain.model.SalesOrderLine"
+                                   cacheType="partial"/>
+        <MithraObjectConfiguration className="com.amtkxa.springbootreladomo.domain.model.Item" cacheType="partial"/>
+    </ConnectionManager>
+</MithraRuntime>
