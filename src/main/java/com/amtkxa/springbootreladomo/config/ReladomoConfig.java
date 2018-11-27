@@ -23,7 +23,7 @@ public class ReladomoConfig {
      * @throws Exception
      */
     @PostConstruct
-    public void initReladomo() throws Exception {
+    public void initializeReladomo() throws Exception {
         MithraManager mithraManager = MithraManagerProvider.getMithraManager();
         mithraManager.setTransactionTimeout(60 * 1000);
         InputStream stream = loadReladomoXMLFromClasspath("config/MithraRuntimeConfiguration.xml");
