@@ -25,6 +25,11 @@ public class DBConnectionManager implements SourcelessConnectionManager {
         return instance;
     }
 
+    /**
+     * Set the properties necessary to create a connection to database.
+     *
+     * @apiNote XAConnectionManager is a utility class for a transactional connection manager.
+     */
     private void createConnectionManager() {
         this.xaConnectionManager = new XAConnectionManager();
         xaConnectionManager.setDriverClassName("org.postgresql.Driver");

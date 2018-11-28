@@ -1,6 +1,8 @@
 package com.amtkxa.springbootreladomo.domain.model;
+
 import com.gs.fw.finder.Operation;
-import java.util.*;
+
+import java.util.Collection;
 public class CustomerList extends CustomerListAbstract
 {
 	public CustomerList()
@@ -22,4 +24,5 @@ public class CustomerList extends CustomerListAbstract
 	{
 		super(operation);
 	}
+
 }
