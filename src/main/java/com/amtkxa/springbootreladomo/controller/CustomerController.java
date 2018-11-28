@@ -25,8 +25,8 @@ public class CustomerController {
         return customerServiceImpl.findAll();
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<? extends CustomerView> getCustomerById(@PathVariable("id") int customerId) {
+    @RequestMapping(method = RequestMethod.GET, value = "{customerId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public List<? extends CustomerView> getCustomerById(@PathVariable("customerId") int customerId) {
         return customerServiceImpl.findByCustomerId(customerId);
     }
 }
