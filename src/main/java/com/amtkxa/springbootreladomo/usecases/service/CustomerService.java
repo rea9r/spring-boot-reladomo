@@ -1,6 +1,6 @@
-package com.amtkxa.springbootreladomo.usecase.service;
+package com.amtkxa.springbootreladomo.usecases.service;
 
-import com.amtkxa.springbootreladomo.usecase.view.CustomerView;
+import com.amtkxa.springbootreladomo.usecases.view.CustomerView;
 
 import java.util.List;
 

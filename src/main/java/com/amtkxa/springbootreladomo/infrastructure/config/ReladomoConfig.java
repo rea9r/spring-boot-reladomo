@@ -1,4 +1,4 @@
-package com.amtkxa.springbootreladomo.infra.config;
+package com.amtkxa.springbootreladomo.infrastructure.config;
 
 import com.gs.fw.common.mithra.MithraManager;
 import com.gs.fw.common.mithra.MithraManagerProvider;

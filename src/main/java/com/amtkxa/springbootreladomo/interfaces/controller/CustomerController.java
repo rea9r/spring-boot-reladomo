@@ -1,7 +1,7 @@
-package com.amtkxa.springbootreladomo.Interface.controller;
+package com.amtkxa.springbootreladomo.interfaces.controller;
 
-import com.amtkxa.springbootreladomo.usecase.service.impl.CustomerServiceImpl;
-import com.amtkxa.springbootreladomo.usecase.view.CustomerView;
+import com.amtkxa.springbootreladomo.usecases.service.impl.CustomerServiceImpl;
+import com.amtkxa.springbootreladomo.usecases.view.CustomerView;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;

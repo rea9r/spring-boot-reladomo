@@ -1,7 +1,7 @@
-package com.amtkxa.springbootreladomo.Interface.presenter;
+package com.amtkxa.springbootreladomo.interfaces.presenter;
 
 import com.amtkxa.springbootreladomo.domain.model.CustomerList;
-import com.amtkxa.springbootreladomo.usecase.view.CustomerView;
+import com.amtkxa.springbootreladomo.usecases.view.CustomerView;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

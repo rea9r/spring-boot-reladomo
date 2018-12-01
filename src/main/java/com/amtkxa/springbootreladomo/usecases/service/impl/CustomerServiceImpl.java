@@ -1,10 +1,10 @@
-package com.amtkxa.springbootreladomo.usecase.service.impl;
+package com.amtkxa.springbootreladomo.usecases.service.impl;
 
-import com.amtkxa.springbootreladomo.Interface.presenter.CustomerPresenter;
 import com.amtkxa.springbootreladomo.domain.model.CustomerList;
-import com.amtkxa.springbootreladomo.usecase.repository.impl.CustomerRepositoryImpl;
-import com.amtkxa.springbootreladomo.usecase.service.CustomerService;
-import com.amtkxa.springbootreladomo.usecase.view.CustomerView;
+import com.amtkxa.springbootreladomo.interfaces.presenter.CustomerPresenter;
+import com.amtkxa.springbootreladomo.usecases.repository.impl.CustomerRepositoryImpl;
+import com.amtkxa.springbootreladomo.usecases.service.CustomerService;
+import com.amtkxa.springbootreladomo.usecases.view.CustomerView;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

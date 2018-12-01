@@ -1,4 +1,4 @@
-package com.amtkxa.springbootreladomo.infra.database;
+package com.amtkxa.springbootreladomo.infrastructure.database;
 
 import com.gs.fw.common.mithra.bulkloader.BulkLoader;
 import com.gs.fw.common.mithra.bulkloader.BulkLoaderException;
