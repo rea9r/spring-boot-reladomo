@@ -1,7 +1,7 @@
-package com.amtkxa.springbootreladomo.usecases.repository;
+package com.amtkxa.springbootreladomo.usecase.repository;
 
 import com.amtkxa.springbootreladomo.domain.model.CustomerList;
-import com.amtkxa.springbootreladomo.usecases.view.CustomerView;
+import com.amtkxa.springbootreladomo.usecase.view.CustomerView;
 
 public interface CustomerRepository {
 

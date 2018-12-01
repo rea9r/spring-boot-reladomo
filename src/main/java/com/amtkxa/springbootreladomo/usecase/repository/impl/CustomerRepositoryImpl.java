@@ -1,10 +1,10 @@
-package com.amtkxa.springbootreladomo.usecases.repository.impl;
+package com.amtkxa.springbootreladomo.usecase.repository.impl;
 
 import com.amtkxa.springbootreladomo.domain.model.Customer;
 import com.amtkxa.springbootreladomo.domain.model.CustomerFinder;
 import com.amtkxa.springbootreladomo.domain.model.CustomerList;
-import com.amtkxa.springbootreladomo.usecases.repository.CustomerRepository;
-import com.amtkxa.springbootreladomo.usecases.view.CustomerView;
+import com.amtkxa.springbootreladomo.usecase.repository.CustomerRepository;
+import com.amtkxa.springbootreladomo.usecase.view.CustomerView;
 import org.springframework.stereotype.Repository;
 
 @Repository

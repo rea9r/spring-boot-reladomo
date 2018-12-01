@@ -1,4 +1,4 @@
-package com.amtkxa.springbootreladomo.usecases.view;
+package com.amtkxa.springbootreladomo.usecase.view;
 
 import com.amtkxa.springbootreladomo.domain.model.Customer;
 import lombok.Builder;
