@@ -1,6 +1,6 @@
 <MithraObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               objectType="transactional"
-              xsi:noNamespaceSchemaLocation="config/mithraobject.xsd">
+              xsi:noNamespaceSchemaLocation="../config/mithraobject.xsd">
     <PackageName>com.amtkxa.springbootreladomo.domain.model</PackageName>
     <ClassName>Item</ClassName>
     <DefaultTable>ITEM</DefaultTable>
