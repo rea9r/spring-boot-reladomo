@@ -1,0 +1,21 @@
+<MithraObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              objectType="transactional"
+              xsi:noNamespaceSchemaLocation="config/mithraobject.xsd">
+    <PackageName>com.amtkxa.springbootreladomo.domain.model</PackageName>
+    <ClassName>Item</ClassName>
+    <DefaultTable>ITEM</DefaultTable>
+
+    <AsOfAttribute name="processingDate" fromColumnName="PROCESSING_DATE_FROM" toColumnName="PROCESSING_DATE_TO"
+                   toIsInclusive="false"
+                   isProcessingDate="true"
+                   infinityDate="[com.gs.fw.common.mithra.util.DefaultInfinityTimestamp.getDefaultInfinity()]"
+                   defaultIfNotSpecified="[com.gs.fw.common.mithra.util.DefaultInfinityTimestamp.getDefaultInfinity()]"
+    />
+
+    <Attribute name="itemId" javaType="int"
+               columnName="ITEM_ID" primaryKey="true"/>
+    <Attribute name="itemName" javaType="String"
+               columnName="ITEM_NAME" nullable="false" maxLength="64"/>
+    <Attribute name="itemPrice" javaType="int"
+               columnName="ITEM_PRICE"/>
+</MithraObject>

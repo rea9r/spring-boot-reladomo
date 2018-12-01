@@ -9,5 +9,5 @@ public interface CustomerRepository {
 
   CustomerList findByCustomerId(int customerId);
 
-  CustomerList create(CustomerView customerView);
+  CustomerList save(CustomerView customerView);
 }

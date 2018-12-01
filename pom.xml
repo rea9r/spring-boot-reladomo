@@ -121,7 +121,7 @@
                                 <taskdef name="gen-reladomo" classpath="plugin_classpath"
                                          classname="com.gs.fw.common.mithra.generator.MithraGenerator"/>
                                 <gen-reladomo
-                                        xml="${project.basedir}/src/main/reladomoxml/MithraClassList.xml"
+                                        xml="${project.basedir}/src/main/resources/reladomo/model/MithraClassList.xml"
                                         generateGscListMethod="true"
                                         generatedDir="${project.build.directory}/generated-sources/reladomo"
                                         nonGeneratedDir="${project.basedir}/src/main/java"
@@ -141,7 +141,7 @@
                                 <taskdef name="gen-reladomo-db" classpath="plugin_classpath"
                                          classname="com.gs.fw.common.mithra.generator.dbgenerator.MithraDbDefinitionGenerator"/>
                                 <gen-reladomo-db
-                                        xml="${project.basedir}/src/main/reladomoxml/MithraClassList.xml"
+                                        xml="${project.basedir}/src/main/resources/reladomo/model/MithraClassList.xml"
                                         generatedDir="${project.build.directory}/generated-resources/db"
                                         databaseType="postgres"/>
                             </tasks>

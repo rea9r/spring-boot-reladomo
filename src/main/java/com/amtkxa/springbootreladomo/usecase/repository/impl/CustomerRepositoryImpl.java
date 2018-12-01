@@ -21,7 +21,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
   }
 
   @Override
-  public CustomerList create(CustomerView customerView) {
+  public CustomerList save(CustomerView customerView) {
     Customer customer = new Customer(customerView);
     customer.cascadeInsert();
     return new CustomerList(customer);
