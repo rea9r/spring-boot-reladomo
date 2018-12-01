@@ -14,8 +14,10 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class CustomerServiceImpl implements CustomerService {
-  @NonNull private final CustomerRepositoryImpl customerRepositoryImpl;
-  @NonNull private final CustomerPresenter customerPresenter;
+  @NonNull
+  private final CustomerRepositoryImpl customerRepositoryImpl;
+  @NonNull
+  private final CustomerPresenter customerPresenter;
 
   @Override
   public List<? extends CustomerView> findAll() {
@@ -26,6 +28,12 @@ public class CustomerServiceImpl implements CustomerService {
   @Override
   public List<? extends CustomerView> findByCustomerId(int customerId) {
     CustomerList customerList = customerRepositoryImpl.findByCustomerId(customerId);
+    return customerPresenter.response(customerList);
+  }
+
+  @Override
+  public List<? extends CustomerView> create(CustomerView customerView) {
+    CustomerList customerList = customerRepositoryImpl.create(customerView);
     return customerPresenter.response(customerList);
   }
 }

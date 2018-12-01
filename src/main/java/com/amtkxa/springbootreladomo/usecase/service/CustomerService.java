@@ -6,7 +6,9 @@ import java.util.List;
 
 public interface CustomerService {
 
-    List<? extends CustomerView> findAll();
+  List<? extends CustomerView> findAll();
 
-    List<? extends CustomerView> findByCustomerId(int customerId);
+  List<? extends CustomerView> findByCustomerId(int customerId);
+
+  List<? extends CustomerView> create(CustomerView customerView);
 }
