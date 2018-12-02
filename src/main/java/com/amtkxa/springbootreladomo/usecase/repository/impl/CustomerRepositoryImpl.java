@@ -3,6 +3,7 @@ package com.amtkxa.springbootreladomo.usecase.repository.impl;
 import com.amtkxa.springbootreladomo.domain.model.Customer;
 import com.amtkxa.springbootreladomo.domain.model.CustomerFinder;
 import com.amtkxa.springbootreladomo.domain.model.CustomerList;
+import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;
 import com.amtkxa.springbootreladomo.usecase.repository.CustomerRepository;
 import com.amtkxa.springbootreladomo.usecase.view.CustomerView;
 import com.gs.fw.common.mithra.MithraManagerProvider;
@@ -35,10 +36,11 @@ public class CustomerRepositoryImpl implements CustomerRepository {
   @Override
   public CustomerList update(CustomerView customerView) {
     MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
+      // fetch data with businessDate
       Operation id = CustomerFinder.customerId().eq(customerView.getCustomerId());
-      Operation ts = CustomerFinder.businessDate().equalsEdgePoint();
-
+      Operation ts = CustomerFinder.businessDate().eq(DateUtils.parse(customerView.getBussinesDate()));
       Customer customer = CustomerFinder.findOne(id.and(ts));
+      // update
       customer.setFirstName(customerView.getFirstName());
       customer.setLastName(customerView.getLastName());
       customer.setCountry(customerView.getCountry());
