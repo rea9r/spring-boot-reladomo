@@ -31,7 +31,7 @@ public class CustomerController {
     return customerServiceImpl.create(customerView);
   }
 
-  @PostMapping(value = "/api/customer/update", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+  @PutMapping(value = "/api/customer/update", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public List<? extends CustomerView> updateCustomer(@RequestBody CustomerView customerView) {
     return customerServiceImpl.update(customerView);
   }
