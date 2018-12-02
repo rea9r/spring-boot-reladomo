@@ -25,5 +25,4 @@ public class CustomerList extends CustomerListAbstract {
   public CustomerList(Operation operation) {
     super(operation);
   }
-
 }

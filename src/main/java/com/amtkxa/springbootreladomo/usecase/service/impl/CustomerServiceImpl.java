@@ -33,13 +33,13 @@ public class CustomerServiceImpl implements CustomerService {
 
   @Override
   public List<? extends CustomerView> create(CustomerView customerView) {
-    CustomerList customerList = customerRepositoryImpl.save(customerView);
+    CustomerList customerList = customerRepositoryImpl.create(customerView);
     return customerPresenter.response(customerList);
   }
 
   @Override
   public List<? extends CustomerView> update(CustomerView customerView) {
-    CustomerList customerList = customerRepositoryImpl.save(customerView);
+    CustomerList customerList = customerRepositoryImpl.update(customerView);
     return customerPresenter.response(customerList);
   }
 }

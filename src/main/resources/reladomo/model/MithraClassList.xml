@@ -1,7 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Mithra xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="../config/mithraobject.xsd">
     <MithraObjectResource name="Customer"/>
-    <MithraObjectResource name="SalesOrder"/>
-    <MithraObjectResource name="SalesOrderLine"/>
-    <MithraObjectResource name="Item"/>
+    <MithraObjectResource name="CustomerAccount"/>
 </Mithra>
