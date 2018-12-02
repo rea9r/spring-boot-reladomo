@@ -5,7 +5,6 @@ import com.gs.fw.common.mithra.bulkloader.BulkLoaderException;
 import com.gs.fw.common.mithra.connectionmanager.SourcelessConnectionManager;
 import com.gs.fw.common.mithra.connectionmanager.XAConnectionManager;
 import com.gs.fw.common.mithra.databasetype.DatabaseType;
-import com.gs.fw.common.mithra.databasetype.PostgresDatabaseType;
 
 import java.sql.Connection;
 import java.util.TimeZone;
@@ -40,7 +39,6 @@ public class DBConnectionManager implements SourcelessConnectionManager {
     xaConnectionManager.setInitialSize(1);
     xaConnectionManager.setPoolSize(10);
     xaConnectionManager.initialisePool();
-    xaConnectionManager.getDatabaseType();
   }
 
   /**
@@ -61,7 +59,7 @@ public class DBConnectionManager implements SourcelessConnectionManager {
    */
   @Override
   public DatabaseType getDatabaseType() {
-    return PostgresDatabaseType.getInstance();
+    return xaConnectionManager.getDatabaseType();
   }
 
   /**
