@@ -42,4 +42,9 @@ public class CustomerServiceImpl implements CustomerService {
     CustomerList customerList = customerRepositoryImpl.update(customerView);
     return customerPresenter.response(customerList);
   }
+
+  @Override
+  public void terminate(CustomerView customerView) {
+    customerRepositoryImpl.terminate(customerView);
+  }
 }

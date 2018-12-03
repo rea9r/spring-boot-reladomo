@@ -12,4 +12,6 @@ public interface CustomerRepository {
   CustomerList create(CustomerView customerView);
 
   CustomerList update(CustomerView customerView);
+
+  void terminate(CustomerView customerView);
 }

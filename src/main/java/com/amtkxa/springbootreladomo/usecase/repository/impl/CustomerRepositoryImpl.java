@@ -48,4 +48,16 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     });
     return findByCustomerId(customerView.getCustomerId());
   }
+
+  @Override
+  public void terminate(CustomerView customerView) {
+    MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
+      Operation id = CustomerFinder.customerId().eq(customerView.getCustomerId());
+      Operation bts = CustomerFinder.businessDate().eq(DateUtils.parse(customerView.getBussinesDate()));
+      Operation pts = CustomerFinder.processingDate().equalsInfinity();
+      Customer customer = CustomerFinder.findOne(id.and(bts).and(pts));
+      customer.terminate();
+      return null;
+    });
+  }
 }
