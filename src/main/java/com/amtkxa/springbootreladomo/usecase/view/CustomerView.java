@@ -2,25 +2,37 @@ package com.amtkxa.springbootreladomo.usecase.view;
 
 import com.amtkxa.springbootreladomo.domain.model.Customer;
 import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Builder
 @Data
-public class CustomerView {
+public class CustomerView implements Serializable {
+  @ApiModelProperty(value = "Customer ID.")
   private int customerId;
+
+  @ApiModelProperty(value = "Customer's first name.")
   private String firstName;
+
+  @ApiModelProperty(value = "Customer's last name.")
   private String lastName;
+
+  @ApiModelProperty(value = "Customer's nationality.")
   private String country;
-  private String bussinesDate;
+
+  @ApiModelProperty(value = "Date the change actually occurred.")
+  private String bossinessDate;
 
   public static CustomerView fromCustomer(Customer customer) {
     return CustomerView.builder()
-            .customerId(customer.getCustomerId())
-            .firstName(customer.getFirstName())
-            .lastName(customer.getLastName())
-            .country(customer.getCountry())
-            .bussinesDate(DateUtils.print(customer.getBusinessDate()))
-            .build();
+        .customerId(customer.getCustomerId())
+        .firstName(customer.getFirstName())
+        .lastName(customer.getLastName())
+        .country(customer.getCountry())
+        .bossinessDate(DateUtils.print(customer.getBusinessDate()))
+        .build();
   }
 }
