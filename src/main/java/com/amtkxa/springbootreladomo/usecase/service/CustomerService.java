@@ -16,32 +16,32 @@ public interface CustomerService {
   /**
    * Search a customer with an ID.
    *
-   * @return list of CustomerView
    * @parm customerId
+   * @return list of CustomerView
    */
   List<? extends CustomerView> findByCustomerId(int customerId);
 
   /**
    * Create a customer.
    *
-   * @return list of CustomerView
    * @parm customerView
+   * @return list of CustomerView
    */
   List<? extends CustomerView> create(CustomerView customerView);
 
   /**
    * Update a customer.
    *
-   * @return list of CustomerView
    * @parm customerView
+   * @return list of CustomerView
    */
   List<? extends CustomerView> update(CustomerView customerView);
 
   /**
    * Terminate a customer.
    *
-   * @return list of CustomerView
    * @parm customerView
+   * @return list of CustomerView
    */
   void terminate(CustomerView customerView);
 }
