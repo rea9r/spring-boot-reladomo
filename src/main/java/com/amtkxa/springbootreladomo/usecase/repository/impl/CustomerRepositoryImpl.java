@@ -38,7 +38,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
       // fetch data with businessDate
       Operation id = CustomerFinder.customerId().eq(customerView.getCustomerId());
-      Operation ts = CustomerFinder.businessDate().eq(DateUtils.parse(customerView.getBussinesDate()));
+      Operation ts = CustomerFinder.businessDate().eq(DateUtils.parse(customerView.getBusinessDate()));
       Customer customer = CustomerFinder.findOne(id.and(ts));
       // update
       customer.setFirstName(customerView.getFirstName());
@@ -53,7 +53,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
   public void terminate(CustomerView customerView) {
     MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
       Operation id = CustomerFinder.customerId().eq(customerView.getCustomerId());
-      Operation bts = CustomerFinder.businessDate().eq(DateUtils.parse(customerView.getBussinesDate()));
+      Operation bts = CustomerFinder.businessDate().eq(DateUtils.parse(customerView.getBusinessDate()));
       Operation pts = CustomerFinder.processingDate().equalsInfinity();
       Customer customer = CustomerFinder.findOne(id.and(bts).and(pts));
       customer.terminate();

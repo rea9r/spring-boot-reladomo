@@ -24,7 +24,7 @@ public class CustomerView implements Serializable {
   private String country;
 
   @ApiModelProperty(value = "Date the change actually occurred.")
-  private String bossinessDate;
+  private String businessDate;
 
   public static CustomerView fromCustomer(Customer customer) {
     return CustomerView.builder()
@@ -32,7 +32,7 @@ public class CustomerView implements Serializable {
         .firstName(customer.getFirstName())
         .lastName(customer.getLastName())
         .country(customer.getCountry())
-        .bossinessDate(DateUtils.print(customer.getBusinessDate()))
+        .businessDate(DateUtils.print(customer.getBusinessDate()))
         .build();
   }
 }
