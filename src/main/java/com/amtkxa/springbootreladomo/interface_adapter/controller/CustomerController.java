@@ -17,7 +17,7 @@ public class CustomerController {
   private final CustomerServiceImpl customerServiceImpl;
 
   @GetMapping(value = "/api/customer", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-  public List<? extends CustomerView> getCustomerAll() {
+  public List<? extends CustomerView> getAllCustomer() {
     return customerServiceImpl.findAll();
   }
 
@@ -26,13 +26,18 @@ public class CustomerController {
     return customerServiceImpl.findByCustomerId(customerId);
   }
 
-  @PostMapping(value = "/api/customer/create", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+  @PostMapping(value = "/api/customer", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public List<? extends CustomerView> createCustomer(@RequestBody CustomerView customerView) {
     return customerServiceImpl.create(customerView);
   }
 
-  @PutMapping(value = "/api/customer/update", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+  @PutMapping(value = "/api/customer", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public List<? extends CustomerView> updateCustomer(@RequestBody CustomerView customerView) {
     return customerServiceImpl.update(customerView);
+  }
+
+  @DeleteMapping(value = "/api/customer", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+  public void deleteCustomer(@RequestBody CustomerView customerView) {
+    customerServiceImpl.terminate(customerView);
   }
 }
