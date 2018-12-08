@@ -1,8 +1,8 @@
 package com.amtkxa.springbootreladomo.domain.repository.impl;
 
-import com.amtkxa.springbootreladomo.data.entity.Customer;
-import com.amtkxa.springbootreladomo.data.entity.CustomerFinder;
-import com.amtkxa.springbootreladomo.data.entity.CustomerList;
+import com.amtkxa.springbootreladomo.domain.entity.Customer;
+import com.amtkxa.springbootreladomo.domain.entity.CustomerFinder;
+import com.amtkxa.springbootreladomo.domain.entity.CustomerList;
 import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;
 import com.amtkxa.springbootreladomo.domain.repository.CustomerRepository;
 import com.amtkxa.springbootreladomo.presentation.view.CustomerView;

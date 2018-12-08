@@ -1,6 +1,6 @@
 package com.amtkxa.springbootreladomo.domain.service.impl;
 
-import com.amtkxa.springbootreladomo.data.entity.CustomerList;
+import com.amtkxa.springbootreladomo.domain.entity.CustomerList;
 import com.amtkxa.springbootreladomo.presentation.presenter.CustomerPresenter;
 import com.amtkxa.springbootreladomo.domain.repository.impl.CustomerRepositoryImpl;
 import com.amtkxa.springbootreladomo.domain.service.CustomerService;

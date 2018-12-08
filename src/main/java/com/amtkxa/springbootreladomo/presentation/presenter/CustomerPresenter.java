@@ -1,6 +1,6 @@
 package com.amtkxa.springbootreladomo.presentation.presenter;
 
-import com.amtkxa.springbootreladomo.data.entity.CustomerList;
+import com.amtkxa.springbootreladomo.domain.entity.CustomerList;
 import com.amtkxa.springbootreladomo.presentation.view.CustomerView;
 import org.springframework.stereotype.Component;
 

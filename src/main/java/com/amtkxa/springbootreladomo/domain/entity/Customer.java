@@ -1,4 +1,4 @@
-package com.amtkxa.springbootreladomo.data.entity;
+package com.amtkxa.springbootreladomo.domain.entity;
 
 import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;
 import com.amtkxa.springbootreladomo.presentation.view.CustomerView;
@@ -12,13 +12,13 @@ public class Customer extends CustomerAbstract {
     // You can call this constructor. You can also add new constructors.
   }
 
-	public Customer(CustomerView customerView) {
-		super(DateUtils.parse(customerView.getBusinessDate()));
-		this.setCustomerId(customerView.getCustomerId());
-		this.setFirstName(customerView.getFirstName());
-		this.setLastName(customerView.getLastName());
-		this.setCountry(customerView.getCountry());
-	}
+  public Customer(CustomerView customerView) {
+    super(DateUtils.parse(customerView.getBusinessDate()));
+    this.setCustomerId(customerView.getCustomerId());
+    this.setFirstName(customerView.getFirstName());
+    this.setLastName(customerView.getLastName());
+    this.setCountry(customerView.getCountry());
+  }
 
   public Customer(Timestamp businessDate) {
     super(businessDate);

@@ -1,8 +1,7 @@
-package com.amtkxa.springbootreladomo.data.entity;
+package com.amtkxa.springbootreladomo.domain.entity;
 
 import com.gs.fw.finder.Operation;
-
-import java.util.Collection;
+import java.util.*;
 
 public class CustomerList extends CustomerListAbstract {
   public CustomerList() {

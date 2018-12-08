@@ -1,3 +1,3 @@
-package com.amtkxa.springbootreladomo.data.entity;
+package com.amtkxa.springbootreladomo.domain.entity;
 
 public class AccountDatabaseObject extends AccountDatabaseObjectAbstract {}

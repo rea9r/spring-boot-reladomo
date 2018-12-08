@@ -1,6 +1,6 @@
 package com.amtkxa.springbootreladomo.domain.service.impl;
 
-import com.amtkxa.springbootreladomo.data.entity.AccountList;
+import com.amtkxa.springbootreladomo.domain.entity.AccountList;
 import com.amtkxa.springbootreladomo.presentation.presenter.AccountPresenter;
 import com.amtkxa.springbootreladomo.domain.repository.impl.AccountRepositoryImpl;
 import com.amtkxa.springbootreladomo.domain.service.AccountService;
