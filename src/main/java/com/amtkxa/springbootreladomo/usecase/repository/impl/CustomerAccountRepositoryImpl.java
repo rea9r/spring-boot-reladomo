@@ -51,5 +51,14 @@ public class CustomerAccountRepositoryImpl implements CustomerAccountRepository 
   }
 
   @Override
-  public void terminate(CustomerAccountView customerAccountView) {}
+  public void terminate(CustomerAccountView customerAccountView) {
+    MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
+      Operation id = CustomerAccountFinder.customerId().eq(customerAccountView.getCustomerId());
+      Operation bts = CustomerAccountFinder.businessDate().eq(DateUtils.parse(customerAccountView.getBusinessDate()));
+      Operation pts = CustomerAccountFinder.processingDate().equalsInfinity();
+      CustomerAccount customerAccount = CustomerAccountFinder.findOne(id.and(bts).and(pts));
+      customerAccount.terminate();
+      return null;
+    });
+  }
 }
