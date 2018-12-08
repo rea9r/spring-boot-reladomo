@@ -1,7 +1,7 @@
 package com.amtkxa.springbootreladomo.domain.repository;
 
 import com.amtkxa.springbootreladomo.domain.entity.CustomerList;
-import com.amtkxa.springbootreladomo.presentation.view.CustomerView;
+import com.amtkxa.springbootreladomo.adapter.view.CustomerView;
 
 public interface CustomerRepository {
 

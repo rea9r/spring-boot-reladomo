@@ -1,10 +1,10 @@
-package com.amtkxa.springbootreladomo.domain.service.impl;
+package com.amtkxa.springbootreladomo.usecase.web.interactor;
 
 import com.amtkxa.springbootreladomo.domain.entity.AccountList;
-import com.amtkxa.springbootreladomo.presentation.presenter.AccountPresenter;
-import com.amtkxa.springbootreladomo.domain.repository.impl.AccountRepositoryImpl;
-import com.amtkxa.springbootreladomo.domain.service.AccountService;
-import com.amtkxa.springbootreladomo.presentation.view.AccountView;
+import com.amtkxa.springbootreladomo.adapter.presenter.AccountPresenterImpl;
+import com.amtkxa.springbootreladomo.usecase.aggregate.AccountRepositoryImpl;
+import com.amtkxa.springbootreladomo.usecase.web.inputport.AccountUseCase;
+import com.amtkxa.springbootreladomo.adapter.view.AccountView;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,9 +13,9 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class AccountServiceImpl implements AccountService {
+public class AccountUseCaseImpl implements AccountUseCase {
   @NonNull private final AccountRepositoryImpl accountRepositoryImpl;
-  @NonNull private final AccountPresenter accountPresenter;
+  @NonNull private final AccountPresenterImpl accountPresenter;
 
   /** {@inheritDoc} */
   @Override

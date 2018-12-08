@@ -1,7 +1,7 @@
-package com.amtkxa.springbootreladomo.presentation.controller;
+package com.amtkxa.springbootreladomo.adapter.controller;
 
-import com.amtkxa.springbootreladomo.domain.service.impl.AccountServiceImpl;
-import com.amtkxa.springbootreladomo.presentation.view.AccountView;
+import com.amtkxa.springbootreladomo.usecase.web.interactor.AccountUseCaseImpl;
+import com.amtkxa.springbootreladomo.adapter.view.AccountView;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -14,7 +14,7 @@ import java.util.List;
 public class AccountController {
 
   @NonNull
-  private final AccountServiceImpl accountServiceImpl;
+  private final AccountUseCaseImpl accountServiceImpl;
 
   @GetMapping(value = "/api/customer/account", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public List<? extends AccountView> getAllCustomer() {

@@ -1,7 +1,7 @@
 package com.amtkxa.springbootreladomo.domain.entity;
 
 import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;
-import com.amtkxa.springbootreladomo.presentation.view.CustomerView;
+import com.amtkxa.springbootreladomo.adapter.view.CustomerView;
 
 import java.sql.Timestamp;
 

@@ -1,10 +1,10 @@
-package com.amtkxa.springbootreladomo.domain.service;
+package com.amtkxa.springbootreladomo.usecase.web.inputport;
 
-import com.amtkxa.springbootreladomo.presentation.view.AccountView;
+import com.amtkxa.springbootreladomo.adapter.view.AccountView;
 
 import java.util.List;
 
-public interface AccountService {
+public interface AccountUseCase {
 
   /**
    * Search all customer.

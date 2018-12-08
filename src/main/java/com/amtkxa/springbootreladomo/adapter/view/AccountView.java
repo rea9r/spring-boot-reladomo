@@ -1,4 +1,4 @@
-package com.amtkxa.springbootreladomo.presentation.view;
+package com.amtkxa.springbootreladomo.adapter.view;
 
 import com.amtkxa.springbootreladomo.domain.entity.Account;
 import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;

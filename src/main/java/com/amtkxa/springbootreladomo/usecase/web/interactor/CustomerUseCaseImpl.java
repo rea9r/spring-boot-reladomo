@@ -1,10 +1,10 @@
-package com.amtkxa.springbootreladomo.domain.service.impl;
+package com.amtkxa.springbootreladomo.usecase.web.interactor;
 
 import com.amtkxa.springbootreladomo.domain.entity.CustomerList;
-import com.amtkxa.springbootreladomo.presentation.presenter.CustomerPresenter;
-import com.amtkxa.springbootreladomo.domain.repository.impl.CustomerRepositoryImpl;
-import com.amtkxa.springbootreladomo.domain.service.CustomerService;
-import com.amtkxa.springbootreladomo.presentation.view.CustomerView;
+import com.amtkxa.springbootreladomo.adapter.presenter.CustomerPresenterImpl;
+import com.amtkxa.springbootreladomo.usecase.aggregate.CustomerRepositoryImpl;
+import com.amtkxa.springbootreladomo.usecase.web.inputport.CustomerUseCase;
+import com.amtkxa.springbootreladomo.adapter.view.CustomerView;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,11 +13,11 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class CustomerServiceImpl implements CustomerService {
+public class CustomerUseCaseImpl implements CustomerUseCase {
   @NonNull
   private final CustomerRepositoryImpl customerRepositoryImpl;
   @NonNull
-  private final CustomerPresenter customerPresenter;
+  private final CustomerPresenterImpl customerPresenter;
 
   /**
    * {@inheritDoc}

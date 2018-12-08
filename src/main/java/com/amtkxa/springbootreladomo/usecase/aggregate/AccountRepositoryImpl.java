@@ -1,11 +1,11 @@
-package com.amtkxa.springbootreladomo.domain.repository.impl;
+package com.amtkxa.springbootreladomo.usecase.aggregate;
 
 import com.amtkxa.springbootreladomo.domain.entity.Account;
 import com.amtkxa.springbootreladomo.domain.entity.AccountFinder;
 import com.amtkxa.springbootreladomo.domain.entity.AccountList;
 import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;
 import com.amtkxa.springbootreladomo.domain.repository.AccountRepository;
-import com.amtkxa.springbootreladomo.presentation.view.AccountView;
+import com.amtkxa.springbootreladomo.adapter.view.AccountView;
 import com.gs.fw.common.mithra.MithraManagerProvider;
 import com.gs.fw.common.mithra.finder.Operation;
 import org.springframework.stereotype.Repository;

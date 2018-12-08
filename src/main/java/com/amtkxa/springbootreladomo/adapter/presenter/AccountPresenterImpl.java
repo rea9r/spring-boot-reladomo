@@ -1,14 +1,15 @@
-package com.amtkxa.springbootreladomo.presentation.presenter;
+package com.amtkxa.springbootreladomo.adapter.presenter;
 
+import com.amtkxa.springbootreladomo.adapter.view.AccountView;
 import com.amtkxa.springbootreladomo.domain.entity.AccountList;
-import com.amtkxa.springbootreladomo.presentation.view.AccountView;
+import com.amtkxa.springbootreladomo.usecase.web.outputport.AccountPresenter;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class AccountPresenter {
+public class AccountPresenterImpl implements AccountPresenter {
   public List<? extends AccountView> response(AccountList accountList) {
     return accountList
         .stream()
