@@ -9,7 +9,8 @@ import org.joda.time.format.DateTimeFormatter;
 import java.sql.Timestamp;
 
 public class Customer extends CustomerAbstract {
-  private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormat.forPattern("YYYY-MM-DD");
+  private static final DateTimeFormatter DATE_TIME_FORMATTER =
+      DateTimeFormat.forPattern("YYYY-MM-DD");
 
   public Customer(Timestamp businessDate, Timestamp processingDate) {
     super(businessDate, processingDate);

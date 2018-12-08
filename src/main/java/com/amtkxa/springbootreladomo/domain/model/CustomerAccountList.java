@@ -1,25 +1,28 @@
 package com.amtkxa.springbootreladomo.domain.model;
+
 import com.gs.fw.finder.Operation;
-import java.util.*;
-public class CustomerAccountList extends CustomerAccountListAbstract
-{
-	public CustomerAccountList()
-	{
-		super();
-	}
 
-	public CustomerAccountList(int initialSize)
-	{
-		super(initialSize);
-	}
+import java.util.Collection;
 
-	public CustomerAccountList(Collection c)
-	{
-		super(c);
-	}
+public class CustomerAccountList extends CustomerAccountListAbstract {
+  public CustomerAccountList() {
+    super();
+  }
 
-	public CustomerAccountList(Operation operation)
-	{
-		super(operation);
-	}
+  public CustomerAccountList(CustomerAccount customerAccount) {
+    super();
+    this.add(customerAccount);
+  }
+
+  public CustomerAccountList(int initialSize) {
+    super(initialSize);
+  }
+
+  public CustomerAccountList(Collection c) {
+    super(c);
+  }
+
+  public CustomerAccountList(Operation operation) {
+    super(operation);
+  }
 }
