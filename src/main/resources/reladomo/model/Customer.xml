@@ -28,8 +28,8 @@
     <Attribute name="country" javaType="String"
                columnName="COUNTRY" nullable="false" maxLength="48"/>
 
-    <Relationship name="accounts" relatedObject="CustomerAccount" cardinality="one-to-many"
+    <Relationship name="accounts" relatedObject="Account" cardinality="one-to-many"
                   reverseRelationshipName="customer" relatedIsDependent="true">
-        this.customerId = CustomerAccount.customerId
+        this.customerId = Account.customerId
     </Relationship>
 </MithraObject>
