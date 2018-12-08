@@ -1,7 +1,7 @@
-package com.amtkxa.springbootreladomo.interface_adapter.presenter;
+package com.amtkxa.springbootreladomo.presentation.presenter;
 
-import com.amtkxa.springbootreladomo.domain.model.AccountList;
-import com.amtkxa.springbootreladomo.interface_adapter.view.AccountView;
+import com.amtkxa.springbootreladomo.data.entity.AccountList;
+import com.amtkxa.springbootreladomo.presentation.view.AccountView;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 <MithraObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               objectType="transactional"
               xsi:noNamespaceSchemaLocation="../config/mithraobject.xsd">
-    <PackageName>com.amtkxa.springbootreladomo.domain.model</PackageName>
+    <PackageName>com.amtkxa.springbootreladomo.data.entity</PackageName>
     <ClassName>Customer</ClassName>
     <DefaultTable>CUSTOMER</DefaultTable>
 

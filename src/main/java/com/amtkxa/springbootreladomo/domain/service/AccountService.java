@@ -1,6 +1,6 @@
 package com.amtkxa.springbootreladomo.domain.service;
 
-import com.amtkxa.springbootreladomo.interface_adapter.view.AccountView;
+import com.amtkxa.springbootreladomo.presentation.view.AccountView;
 
 import java.util.List;
 

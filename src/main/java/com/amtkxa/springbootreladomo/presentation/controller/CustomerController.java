@@ -1,7 +1,7 @@
-package com.amtkxa.springbootreladomo.interface_adapter.controller;
+package com.amtkxa.springbootreladomo.presentation.controller;
 
 import com.amtkxa.springbootreladomo.domain.service.impl.CustomerServiceImpl;
-import com.amtkxa.springbootreladomo.interface_adapter.view.CustomerView;
+import com.amtkxa.springbootreladomo.presentation.view.CustomerView;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;

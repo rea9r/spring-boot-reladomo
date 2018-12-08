@@ -1,11 +1,11 @@
 package com.amtkxa.springbootreladomo.domain.repository.impl;
 
-import com.amtkxa.springbootreladomo.domain.model.Customer;
-import com.amtkxa.springbootreladomo.domain.model.CustomerFinder;
-import com.amtkxa.springbootreladomo.domain.model.CustomerList;
+import com.amtkxa.springbootreladomo.data.entity.Customer;
+import com.amtkxa.springbootreladomo.data.entity.CustomerFinder;
+import com.amtkxa.springbootreladomo.data.entity.CustomerList;
 import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;
 import com.amtkxa.springbootreladomo.domain.repository.CustomerRepository;
-import com.amtkxa.springbootreladomo.interface_adapter.view.CustomerView;
+import com.amtkxa.springbootreladomo.presentation.view.CustomerView;
 import com.gs.fw.common.mithra.MithraManagerProvider;
 import com.gs.fw.common.mithra.finder.Operation;
 import org.springframework.stereotype.Repository;

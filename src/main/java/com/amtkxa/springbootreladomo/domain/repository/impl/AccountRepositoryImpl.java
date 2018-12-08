@@ -1,11 +1,11 @@
 package com.amtkxa.springbootreladomo.domain.repository.impl;
 
-import com.amtkxa.springbootreladomo.domain.model.Account;
-import com.amtkxa.springbootreladomo.domain.model.AccountFinder;
-import com.amtkxa.springbootreladomo.domain.model.AccountList;
+import com.amtkxa.springbootreladomo.data.entity.Account;
+import com.amtkxa.springbootreladomo.data.entity.AccountFinder;
+import com.amtkxa.springbootreladomo.data.entity.AccountList;
 import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;
 import com.amtkxa.springbootreladomo.domain.repository.AccountRepository;
-import com.amtkxa.springbootreladomo.interface_adapter.view.AccountView;
+import com.amtkxa.springbootreladomo.presentation.view.AccountView;
 import com.gs.fw.common.mithra.MithraManagerProvider;
 import com.gs.fw.common.mithra.finder.Operation;
 import org.springframework.stereotype.Repository;

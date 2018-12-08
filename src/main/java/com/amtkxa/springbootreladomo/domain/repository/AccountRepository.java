@@ -1,7 +1,7 @@
 package com.amtkxa.springbootreladomo.domain.repository;
 
-import com.amtkxa.springbootreladomo.domain.model.AccountList;
-import com.amtkxa.springbootreladomo.interface_adapter.view.AccountView;
+import com.amtkxa.springbootreladomo.data.entity.AccountList;
+import com.amtkxa.springbootreladomo.presentation.view.AccountView;
 
 public interface AccountRepository {
 
