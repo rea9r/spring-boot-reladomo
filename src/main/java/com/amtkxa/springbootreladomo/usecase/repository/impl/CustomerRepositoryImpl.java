@@ -15,8 +15,8 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
   @Override
   public CustomerList findAll() {
-    CustomerList customerList = new CustomerList(CustomerFinder.businessDate().equalsEdgePoint());
-    return customerList == null ? null : customerList;
+    Operation ts = CustomerFinder.businessDate().equalsEdgePoint();
+    return CustomerFinder.findMany(ts);
   }
 
   @Override
