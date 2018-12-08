@@ -1,4 +1,4 @@
-package com.amtkxa.springbootreladomo.usecase.view;
+package com.amtkxa.springbootreladomo.interface_adapter.view;
 
 import com.amtkxa.springbootreladomo.domain.model.Customer;
 import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;

@@ -1,7 +1,7 @@
 package com.amtkxa.springbootreladomo.interface_adapter.controller;
 
-import com.amtkxa.springbootreladomo.usecase.service.impl.AccountServiceImpl;
-import com.amtkxa.springbootreladomo.usecase.view.AccountView;
+import com.amtkxa.springbootreladomo.domain.service.impl.AccountServiceImpl;
+import com.amtkxa.springbootreladomo.interface_adapter.view.AccountView;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;

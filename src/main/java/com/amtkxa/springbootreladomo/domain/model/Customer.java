@@ -1,7 +1,7 @@
 package com.amtkxa.springbootreladomo.domain.model;
 
 import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;
-import com.amtkxa.springbootreladomo.usecase.view.CustomerView;
+import com.amtkxa.springbootreladomo.interface_adapter.view.CustomerView;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;

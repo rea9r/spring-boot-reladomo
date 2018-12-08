@@ -1,6 +1,6 @@
-package com.amtkxa.springbootreladomo.usecase.service;
+package com.amtkxa.springbootreladomo.domain.service;
 
-import com.amtkxa.springbootreladomo.usecase.view.AccountView;
+import com.amtkxa.springbootreladomo.interface_adapter.view.AccountView;
 
 import java.util.List;
 

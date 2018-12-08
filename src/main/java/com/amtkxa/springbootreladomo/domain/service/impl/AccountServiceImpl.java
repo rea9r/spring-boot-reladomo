@@ -1,10 +1,10 @@
-package com.amtkxa.springbootreladomo.usecase.service.impl;
+package com.amtkxa.springbootreladomo.domain.service.impl;
 
 import com.amtkxa.springbootreladomo.domain.model.AccountList;
 import com.amtkxa.springbootreladomo.interface_adapter.presenter.AccountPresenter;
-import com.amtkxa.springbootreladomo.usecase.repository.impl.AccountRepositoryImpl;
-import com.amtkxa.springbootreladomo.usecase.service.AccountService;
-import com.amtkxa.springbootreladomo.usecase.view.AccountView;
+import com.amtkxa.springbootreladomo.domain.repository.impl.AccountRepositoryImpl;
+import com.amtkxa.springbootreladomo.domain.service.AccountService;
+import com.amtkxa.springbootreladomo.interface_adapter.view.AccountView;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
