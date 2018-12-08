@@ -23,7 +23,7 @@ public class AccountController {
 
   @GetMapping(value = "/api/customer/account/{customerId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public List<? extends AccountView> getCustomerById(@PathVariable("customerId") int customerId) {
-    return accountServiceImpl.findByCustomerId(customerId);
+    return accountServiceImpl.findByAccountId(customerId);
   }
 
   @PostMapping(value = "/api/customer/account", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

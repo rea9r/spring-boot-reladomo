@@ -10,6 +10,9 @@ import com.gs.fw.common.mithra.MithraManagerProvider;
 import com.gs.fw.common.mithra.finder.Operation;
 import org.springframework.stereotype.Repository;
 
+/**
+ * {@link AccountRepository} for retrieving account data.
+ */
 @Repository
 public class AccountRepositoryImpl implements AccountRepository {
 
@@ -20,8 +23,8 @@ public class AccountRepositoryImpl implements AccountRepository {
   }
 
   @Override
-  public AccountList findByCustomerId(int customerId) {
-    Operation id = AccountFinder.customerId().eq(customerId);
+  public AccountList findByAccountId(int accountId) {
+    Operation id = AccountFinder.customerId().eq(accountId);
     Operation ts = AccountFinder.businessDate().equalsEdgePoint();
     return AccountFinder.findMany(id.and(ts));
   }
@@ -44,7 +47,7 @@ public class AccountRepositoryImpl implements AccountRepository {
       account.setBalance(accountView.getBalance());
       return null;
     });
-    return findByCustomerId(accountView.getCustomerId());
+    return findByAccountId(accountView.getCustomerId());
   }
 
   @Override

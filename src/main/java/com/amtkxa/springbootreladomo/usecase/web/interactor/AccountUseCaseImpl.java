@@ -26,8 +26,8 @@ public class AccountUseCaseImpl implements AccountUseCase {
 
   /** {@inheritDoc} */
   @Override
-  public List<? extends AccountView> findByCustomerId(int customerId) {
-    AccountList accountList = accountRepositoryImpl.findByCustomerId(customerId);
+  public List<? extends AccountView> findByAccountId(int accountId) {
+    AccountList accountList = accountRepositoryImpl.findByAccountId(accountId);
     return accountPresenter.response(accountList);
   }
 

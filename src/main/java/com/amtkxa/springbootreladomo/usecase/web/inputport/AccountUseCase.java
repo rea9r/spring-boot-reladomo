@@ -19,7 +19,7 @@ public interface AccountUseCase {
    * @parm customerId
    * @return list of AccountView
    */
-  List<? extends AccountView> findByCustomerId(int customerId);
+  List<? extends AccountView> findByAccountId(int customerId);
 
   /**
    * Create a customer.

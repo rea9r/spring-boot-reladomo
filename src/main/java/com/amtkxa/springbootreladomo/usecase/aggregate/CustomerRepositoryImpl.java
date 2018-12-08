@@ -10,6 +10,9 @@ import com.gs.fw.common.mithra.MithraManagerProvider;
 import com.gs.fw.common.mithra.finder.Operation;
 import org.springframework.stereotype.Repository;
 
+/**
+ * {@link CustomerRepository} for retrieving customer data.
+ */
 @Repository
 public class CustomerRepositoryImpl implements CustomerRepository {
 
