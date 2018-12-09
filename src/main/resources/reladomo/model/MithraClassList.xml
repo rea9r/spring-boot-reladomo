@@ -3,4 +3,5 @@
         xsi:noNamespaceSchemaLocation="../config/mithraobject.xsd">
     <MithraObjectResource name="Customer"/>
     <MithraObjectResource name="Account"/>
+    <MithraObjectResource name="ObjectSequence"/>
 </Mithra>
