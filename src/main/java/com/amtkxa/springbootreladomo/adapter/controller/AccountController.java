@@ -1,5 +1,6 @@
 package com.amtkxa.springbootreladomo.adapter.controller;
 
+import com.amtkxa.springbootreladomo.adapter.view.TransactionView;
 import com.amtkxa.springbootreladomo.usecase.web.interactor.AccountUseCaseImpl;
 import com.amtkxa.springbootreladomo.adapter.view.AccountView;
 import lombok.NonNull;
@@ -27,8 +28,8 @@ public class AccountController {
   }
 
   @PutMapping(value = "/api/customer/account", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-  public List<? extends AccountView> updateAccount(@RequestBody AccountView accountView) {
-    return accountUseCaseImpl.update(accountView);
+  public List<? extends AccountView> deposit(@RequestBody TransactionView transactionView) {
+    return accountUseCaseImpl.deposit(transactionView);
   }
 
   @DeleteMapping(value = "/api/customer/account", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

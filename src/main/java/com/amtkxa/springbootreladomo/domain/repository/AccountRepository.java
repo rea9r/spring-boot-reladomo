@@ -1,5 +1,6 @@
 package com.amtkxa.springbootreladomo.domain.repository;
 
+import com.amtkxa.springbootreladomo.adapter.view.TransactionView;
 import com.amtkxa.springbootreladomo.domain.entity.Account;
 import com.amtkxa.springbootreladomo.domain.entity.AccountList;
 import com.amtkxa.springbootreladomo.adapter.view.AccountView;
@@ -11,11 +12,6 @@ public interface AccountRepository {
 
   /**
    * Get a List of {@link Account}.
-   */
-  AccountList findAll();
-
-  /**
-   * Get a List of {@link Account}.
    *
    * @param accountId The account id used to retrieve account data.
    */
@@ -23,7 +19,7 @@ public interface AccountRepository {
 
   AccountList create(AccountView accountView);
 
-  AccountList update(AccountView accountView);
+  AccountList deposit(TransactionView transactionView);
 
   void terminate(AccountView accountView);
 }

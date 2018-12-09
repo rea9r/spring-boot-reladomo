@@ -1,5 +1,6 @@
 package com.amtkxa.springbootreladomo.usecase.web.interactor;
 
+import com.amtkxa.springbootreladomo.adapter.view.TransactionView;
 import com.amtkxa.springbootreladomo.domain.entity.AccountList;
 import com.amtkxa.springbootreladomo.adapter.presenter.AccountPresenterImpl;
 import com.amtkxa.springbootreladomo.usecase.repository.AccountRepositoryImpl;
@@ -19,13 +20,6 @@ public class AccountUseCaseImpl implements AccountUseCase {
 
   /** {@inheritDoc} */
   @Override
-  public List<? extends AccountView> findAll() {
-    AccountList accountList = accountRepositoryImpl.findAll();
-    return accountPresenter.response(accountList);
-  }
-
-  /** {@inheritDoc} */
-  @Override
   public List<? extends AccountView> findByAccountId(int accountId) {
     AccountList accountList = accountRepositoryImpl.findByAccountId(accountId);
     return accountPresenter.response(accountList);
@@ -40,8 +34,8 @@ public class AccountUseCaseImpl implements AccountUseCase {
 
   /** {@inheritDoc} */
   @Override
-  public List<? extends AccountView> update(AccountView accountView) {
-    AccountList accountList = accountRepositoryImpl.update(accountView);
+  public List<? extends AccountView> deposit(TransactionView transactionView) {
+    AccountList accountList = accountRepositoryImpl.deposit(transactionView);
     return accountPresenter.response(accountList);
   }
 

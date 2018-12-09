@@ -1,20 +1,14 @@
 package com.amtkxa.springbootreladomo.usecase.web.inputport;
 
 import com.amtkxa.springbootreladomo.adapter.view.AccountView;
+import com.amtkxa.springbootreladomo.adapter.view.TransactionView;
 
 import java.util.List;
 
 public interface AccountUseCase {
 
   /**
-   * Search all customer.
-   *
-   * @return list of AccountView
-   */
-  List<? extends AccountView> findAll();
-
-  /**
-   * Search a customer with an ID.
+   * Search a account with an ID.
    *
    * @parm customerId
    * @return list of AccountView
@@ -22,7 +16,7 @@ public interface AccountUseCase {
   List<? extends AccountView> findByAccountId(int customerId);
 
   /**
-   * Create a customer.
+   * Create a account.
    *
    * @parm accountView
    * @return list of AccountView
@@ -30,15 +24,15 @@ public interface AccountUseCase {
   List<? extends AccountView> create(AccountView accountView);
 
   /**
-   * Update a customer.
+   * Update a account.
    *
    * @parm accountView
    * @return list of AccountView
    */
-  List<? extends AccountView> update(AccountView accountView);
+  List<? extends AccountView> deposit(TransactionView transactionView);
 
   /**
-   * Terminate a customer.
+   * Terminate a account.
    *
    * @parm accountView
    * @return list of AccountView

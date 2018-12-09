@@ -1,5 +1,6 @@
 package com.amtkxa.springbootreladomo.domain.entity;
 
+import com.amtkxa.springbootreladomo.adapter.view.TransactionView;
 import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;
 import com.amtkxa.springbootreladomo.adapter.view.AccountView;
 
@@ -21,5 +22,9 @@ public class Account extends AccountAbstract {
 
   public Account(Timestamp businessDate) {
     super(businessDate);
+  }
+
+  public void deposit(TransactionView transactionView) {
+    this.setBalance(this.getBalance() + transactionView.getAmount());
   }
 }

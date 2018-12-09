@@ -1,5 +1,6 @@
 package com.amtkxa.springbootreladomo.usecase.repository;
 
+import com.amtkxa.springbootreladomo.adapter.view.TransactionView;
 import com.amtkxa.springbootreladomo.domain.entity.Account;
 import com.amtkxa.springbootreladomo.domain.entity.AccountFinder;
 import com.amtkxa.springbootreladomo.domain.entity.AccountList;
@@ -23,12 +24,6 @@ public class AccountRepositoryImpl implements AccountRepository {
   AccountOperation op;
 
   @Override
-  public AccountList findAll() {
-    Operation ts = AccountFinder.businessDate().equalsEdgePoint();
-    return AccountFinder.findMany(ts);
-  }
-
-  @Override
   public AccountList findByAccountId(int accountId) {
     return AccountFinder.findMany(op.id(accountId));
   }
@@ -41,13 +36,13 @@ public class AccountRepositoryImpl implements AccountRepository {
   }
 
   @Override
-  public AccountList update(AccountView accountView) {
+  public AccountList deposit(TransactionView transactionView) {
     MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
-      Account account = AccountFinder.findOne(op.id(accountView).and(op.bDate(accountView)));
-      account.setBalance(accountView.getBalance());
+      Account account = AccountFinder.findOne(op.id(transactionView).and(op.bDate(transactionView)));
+      account.deposit(transactionView);
       return null;
     });
-    return findByAccountId(accountView.getCustomerId());
+    return findByAccountId(transactionView.getAccountId());
   }
 
   @Override
