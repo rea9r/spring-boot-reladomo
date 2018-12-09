@@ -2,7 +2,7 @@ package com.amtkxa.springbootreladomo.usecase.web.interactor;
 
 import com.amtkxa.springbootreladomo.domain.entity.CustomerList;
 import com.amtkxa.springbootreladomo.adapter.presenter.CustomerPresenterImpl;
-import com.amtkxa.springbootreladomo.usecase.aggregate.CustomerRepositoryImpl;
+import com.amtkxa.springbootreladomo.usecase.repository.CustomerRepositoryImpl;
 import com.amtkxa.springbootreladomo.usecase.web.inputport.CustomerUseCase;
 import com.amtkxa.springbootreladomo.adapter.view.CustomerView;
 import lombok.NonNull;

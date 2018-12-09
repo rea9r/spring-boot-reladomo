@@ -1,20 +1,26 @@
-package com.amtkxa.springbootreladomo.usecase.aggregate;
+package com.amtkxa.springbootreladomo.usecase.repository;
 
 import com.amtkxa.springbootreladomo.domain.entity.Account;
 import com.amtkxa.springbootreladomo.domain.entity.AccountFinder;
 import com.amtkxa.springbootreladomo.domain.entity.AccountList;
-import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;
 import com.amtkxa.springbootreladomo.domain.repository.AccountRepository;
 import com.amtkxa.springbootreladomo.adapter.view.AccountView;
+import com.amtkxa.springbootreladomo.usecase.repository.operation.AccountOperation;
 import com.gs.fw.common.mithra.MithraManagerProvider;
 import com.gs.fw.common.mithra.finder.Operation;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 /**
  * {@link AccountRepository} for retrieving account data.
  */
 @Repository
+@RequiredArgsConstructor
 public class AccountRepositoryImpl implements AccountRepository {
+
+  @NonNull
+  AccountOperation op;
 
   @Override
   public AccountList findAll() {
@@ -24,9 +30,7 @@ public class AccountRepositoryImpl implements AccountRepository {
 
   @Override
   public AccountList findByAccountId(int accountId) {
-    Operation id = AccountFinder.customerId().eq(accountId);
-    Operation ts = AccountFinder.businessDate().equalsEdgePoint();
-    return AccountFinder.findMany(id.and(ts));
+    return AccountFinder.findMany(op.id(accountId));
   }
 
   @Override
@@ -39,11 +43,7 @@ public class AccountRepositoryImpl implements AccountRepository {
   @Override
   public AccountList update(AccountView accountView) {
     MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
-      // fetch data with businessDate
-      Operation id = AccountFinder.customerId().eq(accountView.getCustomerId());
-      Operation ts = AccountFinder.businessDate().eq(DateUtils.parse(accountView.getBusinessDate()));
-      Account account = AccountFinder.findOne(id.and(ts));
-      // update
+      Account account = AccountFinder.findOne(op.id(accountView).and(op.bDate(accountView)));
       account.setBalance(accountView.getBalance());
       return null;
     });
@@ -53,10 +53,7 @@ public class AccountRepositoryImpl implements AccountRepository {
   @Override
   public void terminate(AccountView accountView) {
     MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
-      Operation id = AccountFinder.customerId().eq(accountView.getCustomerId());
-      Operation bts = AccountFinder.businessDate().eq(DateUtils.parse(accountView.getBusinessDate()));
-      Operation pts = AccountFinder.processingDate().equalsInfinity();
-      Account account = AccountFinder.findOne(id.and(bts).and(pts));
+      Account account = AccountFinder.findOne(op.id(accountView).and(op.bDate(accountView)).and(op.pDate()));
       account.terminate();
       return null;
     });

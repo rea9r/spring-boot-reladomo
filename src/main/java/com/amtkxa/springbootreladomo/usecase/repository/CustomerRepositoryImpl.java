@@ -1,20 +1,26 @@
-package com.amtkxa.springbootreladomo.usecase.aggregate;
+package com.amtkxa.springbootreladomo.usecase.repository;
 
 import com.amtkxa.springbootreladomo.domain.entity.Customer;
 import com.amtkxa.springbootreladomo.domain.entity.CustomerFinder;
 import com.amtkxa.springbootreladomo.domain.entity.CustomerList;
-import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;
 import com.amtkxa.springbootreladomo.domain.repository.CustomerRepository;
 import com.amtkxa.springbootreladomo.adapter.view.CustomerView;
+import com.amtkxa.springbootreladomo.usecase.repository.operation.CustomerOperation;
 import com.gs.fw.common.mithra.MithraManagerProvider;
 import com.gs.fw.common.mithra.finder.Operation;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 /**
  * {@link CustomerRepository} for retrieving customer data.
  */
 @Repository
+@RequiredArgsConstructor
 public class CustomerRepositoryImpl implements CustomerRepository {
+
+  @NonNull
+  private CustomerOperation op;
 
   @Override
   public CustomerList findAll() {
@@ -24,9 +30,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
   @Override
   public CustomerList findByCustomerId(int customerId) {
-    Operation id = CustomerFinder.customerId().eq(customerId);
-    Operation ts = CustomerFinder.businessDate().equalsEdgePoint();
-    return CustomerFinder.findMany(id.and(ts));
+    return CustomerFinder.findMany(op.id(customerId));
   }
 
   @Override
@@ -39,11 +43,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
   @Override
   public CustomerList update(CustomerView customerView) {
     MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
-      // fetch data with businessDate
-      Operation id = CustomerFinder.customerId().eq(customerView.getCustomerId());
-      Operation ts = CustomerFinder.businessDate().eq(DateUtils.parse(customerView.getBusinessDate()));
-      Customer customer = CustomerFinder.findOne(id.and(ts));
-      // update
+      Customer customer = CustomerFinder.findOne(op.id(customerView).and(op.bDate(customerView)));
       customer.setName(customerView.getName());
       customer.setCountry(customerView.getCountry());
       return null;
@@ -54,12 +54,10 @@ public class CustomerRepositoryImpl implements CustomerRepository {
   @Override
   public void terminate(CustomerView customerView) {
     MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
-      Operation id = CustomerFinder.customerId().eq(customerView.getCustomerId());
-      Operation bts = CustomerFinder.businessDate().eq(DateUtils.parse(customerView.getBusinessDate()));
-      Operation pts = CustomerFinder.processingDate().equalsInfinity();
-      Customer customer = CustomerFinder.findOne(id.and(bts).and(pts));
+      Customer customer = CustomerFinder.findOne(op.id(customerView).and(op.bDate(customerView)).and(op.pDate()));
       customer.terminate();
       return null;
     });
   }
+
 }
