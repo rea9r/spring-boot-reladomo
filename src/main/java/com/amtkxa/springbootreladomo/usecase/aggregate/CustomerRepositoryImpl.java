@@ -44,8 +44,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
       Operation ts = CustomerFinder.businessDate().eq(DateUtils.parse(customerView.getBusinessDate()));
       Customer customer = CustomerFinder.findOne(id.and(ts));
       // update
-      customer.setFirstName(customerView.getFirstName());
-      customer.setLastName(customerView.getLastName());
+      customer.setName(customerView.getName());
       customer.setCountry(customerView.getCountry());
       return null;
     });

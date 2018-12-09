@@ -14,25 +14,25 @@ import java.util.List;
 public class AccountController {
 
   @NonNull
-  private final AccountUseCaseImpl accountServiceImpl;
+  private final AccountUseCaseImpl accountUseCaseImpl;
 
   @GetMapping(value = "/api/customer/account/{customerId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public List<? extends AccountView> getAccountByCustomerId(@PathVariable("customerId") int customerId) {
-    return accountServiceImpl.findByAccountId(customerId);
+    return accountUseCaseImpl.findByAccountId(customerId);
   }
 
   @PostMapping(value = "/api/customer/account", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public List<? extends AccountView> createAccount(@RequestBody AccountView accountView) {
-    return accountServiceImpl.create(accountView);
+    return accountUseCaseImpl.create(accountView);
   }
 
   @PutMapping(value = "/api/customer/account", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public List<? extends AccountView> updateAccount(@RequestBody AccountView accountView) {
-    return accountServiceImpl.update(accountView);
+    return accountUseCaseImpl.update(accountView);
   }
 
   @DeleteMapping(value = "/api/customer/account", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public void deleteAccount(@RequestBody AccountView accountView) {
-    accountServiceImpl.terminate(accountView);
+    accountUseCaseImpl.terminate(accountView);
   }
 }

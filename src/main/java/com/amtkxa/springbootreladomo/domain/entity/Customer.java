@@ -15,8 +15,7 @@ public class Customer extends CustomerAbstract {
   public Customer(CustomerView customerView) {
     super(DateUtils.parse(customerView.getBusinessDate()));
     this.setCustomerId(customerView.getCustomerId());
-    this.setFirstName(customerView.getFirstName());
-    this.setLastName(customerView.getLastName());
+    this.setName(customerView.getName());
     this.setCountry(customerView.getCountry());
   }
 

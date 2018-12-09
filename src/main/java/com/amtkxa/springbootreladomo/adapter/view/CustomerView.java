@@ -14,11 +14,8 @@ public class CustomerView implements Serializable {
   @ApiModelProperty(value = "Customer ID.")
   private int customerId;
 
-  @ApiModelProperty(value = "Customer's first name.")
-  private String firstName;
-
-  @ApiModelProperty(value = "Customer's last name.")
-  private String lastName;
+  @ApiModelProperty(value = "Customer's name.")
+  private String name;
 
   @ApiModelProperty(value = "Customer's nationality.")
   private String country;
@@ -29,8 +26,7 @@ public class CustomerView implements Serializable {
   public static CustomerView fromCustomer(Customer customer) {
     return CustomerView.builder()
         .customerId(customer.getCustomerId())
-        .firstName(customer.getFirstName())
-        .lastName(customer.getLastName())
+        .name(customer.getName())
         .country(customer.getCountry())
         .businessDate(DateUtils.print(customer.getBusinessDate()))
         .build();

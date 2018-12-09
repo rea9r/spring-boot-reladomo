@@ -14,30 +14,30 @@ import java.util.List;
 public class CustomerController {
 
   @NonNull
-  private final CustomerUseCaseImpl customerServiceImpl;
+  private final CustomerUseCaseImpl customerUseCaseImpl;
 
   @GetMapping(value = "/api/customer", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public List<? extends CustomerView> getAllCustomer() {
-    return customerServiceImpl.findAll();
+    return customerUseCaseImpl.findAll();
   }
 
   @GetMapping(value = "/api/customer/{customerId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public List<? extends CustomerView> getCustomerById(@PathVariable("customerId") int customerId) {
-    return customerServiceImpl.findByCustomerId(customerId);
+    return customerUseCaseImpl.findByCustomerId(customerId);
   }
 
   @PostMapping(value = "/api/customer", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public List<? extends CustomerView> createCustomer(@RequestBody CustomerView customerView) {
-    return customerServiceImpl.create(customerView);
+    return customerUseCaseImpl.create(customerView);
   }
 
   @PutMapping(value = "/api/customer", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public List<? extends CustomerView> updateCustomer(@RequestBody CustomerView customerView) {
-    return customerServiceImpl.update(customerView);
+    return customerUseCaseImpl.update(customerView);
   }
 
   @DeleteMapping(value = "/api/customer", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public void deleteCustomer(@RequestBody CustomerView customerView) {
-    customerServiceImpl.terminate(customerView);
+    customerUseCaseImpl.terminate(customerView);
   }
 }
