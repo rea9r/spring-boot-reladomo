@@ -16,28 +16,23 @@ public class AccountController {
   @NonNull
   private final AccountUseCaseImpl accountServiceImpl;
 
-  @GetMapping(value = "/api/customer/account", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-  public List<? extends AccountView> getAllCustomer() {
-    return accountServiceImpl.findAll();
-  }
-
   @GetMapping(value = "/api/customer/account/{customerId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-  public List<? extends AccountView> getCustomerById(@PathVariable("customerId") int customerId) {
+  public List<? extends AccountView> getAccountByCustomerId(@PathVariable("customerId") int customerId) {
     return accountServiceImpl.findByAccountId(customerId);
   }
 
   @PostMapping(value = "/api/customer/account", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-  public List<? extends AccountView> createCustomer(@RequestBody AccountView accountView) {
+  public List<? extends AccountView> createAccount(@RequestBody AccountView accountView) {
     return accountServiceImpl.create(accountView);
   }
 
   @PutMapping(value = "/api/customer/account", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-  public List<? extends AccountView> updateCustomer(@RequestBody AccountView accountView) {
+  public List<? extends AccountView> updateAccount(@RequestBody AccountView accountView) {
     return accountServiceImpl.update(accountView);
   }
 
   @DeleteMapping(value = "/api/customer/account", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-  public void deleteCustomer(@RequestBody AccountView accountView) {
+  public void deleteAccount(@RequestBody AccountView accountView) {
     accountServiceImpl.terminate(accountView);
   }
 }
