@@ -17,22 +17,22 @@ public class AccountController {
   @NonNull
   private final AccountUseCaseImpl accountUseCaseImpl;
 
-  @GetMapping(value = "/api/customer/account/{customerId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+  @GetMapping(value = "/api/account/{customerId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public List<? extends AccountView> getAccountByCustomerId(@PathVariable("customerId") int customerId) {
     return accountUseCaseImpl.findByAccountId(customerId);
   }
 
-  @PostMapping(value = "/api/customer/account", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+  @PostMapping(value = "/api/account", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public List<? extends AccountView> createAccount(@RequestBody AccountView accountView) {
     return accountUseCaseImpl.create(accountView);
   }
 
-  @PutMapping(value = "/api/customer/account", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+  @PutMapping(value = "/api/account/deposit", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public List<? extends AccountView> deposit(@RequestBody TransactionView transactionView) {
     return accountUseCaseImpl.deposit(transactionView);
   }
 
-  @DeleteMapping(value = "/api/customer/account", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+  @DeleteMapping(value = "/api/account", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public void deleteAccount(@RequestBody AccountView accountView) {
     accountUseCaseImpl.terminate(accountView);
   }
