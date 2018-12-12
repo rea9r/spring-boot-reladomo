@@ -33,6 +33,10 @@ public class AccountOperation {
     return AccountFinder.businessDate().eq(DateUtils.parse(transactionView.getTransactionDate()));
   }
 
+  public Operation bDate() {
+    return AccountFinder.businessDate().equalsEdgePoint();
+  }
+
   public Operation pDate() {
     return AccountFinder.processingDate().equalsInfinity();
   }

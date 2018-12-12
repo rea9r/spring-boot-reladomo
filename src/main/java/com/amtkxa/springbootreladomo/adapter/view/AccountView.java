@@ -31,7 +31,6 @@ public class AccountView implements Serializable {
 
   public static AccountView fromCustomerAccount(Account account) {
     return AccountView.builder()
-        .accountId(account.getAccountId())
         .customerId(account.getCustomerId())
         .balance(account.getBalance())
         .businessDate(DateUtils.print(account.getBusinessDate()))

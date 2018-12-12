@@ -18,8 +18,15 @@
                    infinityDate="[com.gs.fw.common.mithra.util.DefaultInfinityTimestamp.getDefaultInfinity()]"
                    defaultIfNotSpecified="[com.gs.fw.common.mithra.util.DefaultInfinityTimestamp.getDefaultInfinity()]"
     />
-
-    <Attribute name="accountId" javaType="int" columnName="ACCOUNT_ID" primaryKey="true"/>
+    <Attribute name="accountId" javaType="int" columnName="ACCOUNT_ID" primaryKey="true"
+               primaryKeyGeneratorStrategy="SimulatedSequence">
+        <SimulatedSequence sequenceName="Account"
+                           sequenceObjectFactoryName="com.amtkxa.springbootreladomo.infrastructure.util.ObjectSequenceObjectFactory"
+                           hasSourceAttribute="false"
+                           batchSize="1"
+                           initialValue="1"
+                           incrementSize="1"/>
+    </Attribute>
     <Attribute name="customerId" javaType="int" columnName="CUSTOMER_ID" nullable="false"/>
     <Attribute name="balance" javaType="double" columnName="BALANCE"/>
 </MithraObject>

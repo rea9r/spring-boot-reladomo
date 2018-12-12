@@ -25,7 +25,7 @@ public class AccountRepositoryImpl implements AccountRepository {
 
   @Override
   public AccountList findByAccountId(int accountId) {
-    return AccountFinder.findMany(op.id(accountId));
+    return AccountFinder.findMany(op.id(accountId).and(op.bDate()));
   }
 
   @Override
