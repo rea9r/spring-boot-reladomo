@@ -15,8 +15,6 @@ public class Account extends AccountAbstract {
 
   public Account(AccountView accountView) {
     super(DateUtils.parse(accountView.getBusinessDate()));
-    this.setAccountId(accountView.getAccountId());
-    this.setCustomerId(accountView.getCustomerId());
     this.setBalance(accountView.getBalance());
   }
 
@@ -25,6 +23,6 @@ public class Account extends AccountAbstract {
   }
 
   public void deposit(TransactionView transactionView) {
-    this.setBalance(this.getBalance() + transactionView.getAmount());
+    this.incrementBalance(transactionView.getAmount());
   }
 }
