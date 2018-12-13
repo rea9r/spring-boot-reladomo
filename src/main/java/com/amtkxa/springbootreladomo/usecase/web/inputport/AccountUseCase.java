@@ -32,6 +32,14 @@ public interface AccountUseCase {
   List<? extends AccountView> deposit(TransactionView transactionView);
 
   /**
+   * Update a account.
+   *
+   * @parm accountView
+   * @return list of AccountView
+   */
+  List<? extends AccountView> withdrawal(TransactionView transactionView);
+
+  /**
    * Terminate a account.
    *
    * @parm accountView

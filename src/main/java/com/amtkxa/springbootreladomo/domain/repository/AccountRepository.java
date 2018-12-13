@@ -13,13 +13,15 @@ public interface AccountRepository {
   /**
    * Get a List of {@link Account}.
    *
-   * @param accountId The account id used to retrieve account data.
+   * @param accountId The account customerId used to retrieve account data.
    */
   AccountList findByAccountId(int accountId);
 
   AccountList create(AccountView accountView);
 
   AccountList deposit(TransactionView transactionView);
+
+  AccountList withdrawal(TransactionView transactionView);
 
   void terminate(AccountView accountView);
 }

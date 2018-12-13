@@ -41,6 +41,13 @@ public class AccountUseCaseImpl implements AccountUseCase {
 
   /** {@inheritDoc} */
   @Override
+  public List<? extends AccountView> withdrawal(TransactionView transactionView) {
+    AccountList accountList = accountRepositoryImpl.withdrawal(transactionView);
+    return accountPresenter.response(accountList);
+  }
+
+  /** {@inheritDoc} */
+  @Override
   public void terminate(AccountView accountView) {
     accountRepositoryImpl.terminate(accountView);
   }

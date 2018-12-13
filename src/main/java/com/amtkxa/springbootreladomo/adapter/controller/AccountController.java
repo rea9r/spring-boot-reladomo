@@ -32,6 +32,11 @@ public class AccountController {
     return accountUseCaseImpl.deposit(transactionView);
   }
 
+  @PutMapping(value = "/api/account/withdrawal", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+  public List<? extends AccountView> withdrawal(@RequestBody TransactionView transactionView) {
+    return accountUseCaseImpl.withdrawal(transactionView);
+  }
+
   @DeleteMapping(value = "/api/account", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public void deleteAccount(@RequestBody AccountView accountView) {
     accountUseCaseImpl.terminate(accountView);

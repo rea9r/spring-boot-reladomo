@@ -25,4 +25,8 @@ public class Account extends AccountAbstract {
   public void deposit(TransactionView transactionView) {
     this.incrementBalance(transactionView.getAmount());
   }
+
+  public void withdrawal(TransactionView transactionView) {
+    this.incrementBalance(transactionView.getAmount() * -1);
+  }
 }

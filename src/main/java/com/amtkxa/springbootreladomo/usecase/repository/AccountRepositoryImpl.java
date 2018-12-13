@@ -8,7 +8,6 @@ import com.amtkxa.springbootreladomo.domain.repository.AccountRepository;
 import com.amtkxa.springbootreladomo.adapter.view.AccountView;
 import com.amtkxa.springbootreladomo.usecase.repository.operation.AccountOperation;
 import com.gs.fw.common.mithra.MithraManagerProvider;
-import com.gs.fw.common.mithra.finder.Operation;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -25,7 +24,7 @@ public class AccountRepositoryImpl implements AccountRepository {
 
   @Override
   public AccountList findByAccountId(int accountId) {
-    return AccountFinder.findMany(op.id(accountId).and(op.bDate()));
+    return AccountFinder.findMany(op.accountId(accountId).and(op.businessDate()));
   }
 
   @Override
@@ -37,18 +36,28 @@ public class AccountRepositoryImpl implements AccountRepository {
 
   @Override
   public AccountList deposit(TransactionView transactionView) {
-    MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
-      Account account = AccountFinder.findOne(op.id(transactionView).and(op.bDate(transactionView)));
+    Account result = MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
+      Account account = AccountFinder.findOne(op.accountId(transactionView).and(op.businessDate(transactionView)));
       account.deposit(transactionView);
-      return null;
+      return account;
     });
-    return findByAccountId(transactionView.getAccountId());
+    return new AccountList(result);
+  }
+
+  @Override
+  public AccountList withdrawal(TransactionView transactionView) {
+    Account result = MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
+      Account account = AccountFinder.findOne(op.accountId(transactionView).and(op.businessDate(transactionView)));
+      account.withdrawal(transactionView);
+      return account;
+    });
+    return new AccountList(result);
   }
 
   @Override
   public void terminate(AccountView accountView) {
     MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
-      Account account = AccountFinder.findOne(op.id(accountView).and(op.bDate(accountView)).and(op.pDate()));
+      Account account = AccountFinder.findOne(op.accountId(accountView).and(op.businessDate(accountView)).and(op.processingDate()));
       account.terminate();
       return null;
     });

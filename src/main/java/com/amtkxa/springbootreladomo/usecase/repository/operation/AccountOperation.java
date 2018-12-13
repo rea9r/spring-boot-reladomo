@@ -9,35 +9,35 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class AccountOperation {
-  public Operation id(int accountId) {
+  public Operation accountId(int accountId) {
     return AccountFinder.accountId().eq(accountId);
   }
 
-  public Operation id(AccountView accountView) {
+  public Operation accountId(AccountView accountView) {
     return AccountFinder.accountId().eq(accountView.getAccountId());
   }
 
-  public Operation id(TransactionView transactionView) {
+  public Operation accountId(TransactionView transactionView) {
     return AccountFinder.accountId().eq(transactionView.getAccountId());
   }
 
-  public Operation bDate(String businessDate) {
+  public Operation businessDate(String businessDate) {
     return AccountFinder.businessDate().eq(DateUtils.parse(businessDate));
   }
 
-  public Operation bDate(AccountView accountView) {
+  public Operation businessDate(AccountView accountView) {
     return AccountFinder.businessDate().eq(DateUtils.parse(accountView.getBusinessDate()));
   }
 
-  public Operation bDate(TransactionView transactionView) {
+  public Operation businessDate(TransactionView transactionView) {
     return AccountFinder.businessDate().eq(DateUtils.parse(transactionView.getTransactionDate()));
   }
 
-  public Operation bDate() {
+  public Operation businessDate() {
     return AccountFinder.businessDate().equalsEdgePoint();
   }
 
-  public Operation pDate() {
+  public Operation processingDate() {
     return AccountFinder.processingDate().equalsInfinity();
   }
 }
