@@ -8,19 +8,23 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CustomerOperation {
-  public Operation id(int customerId) {
+  public Operation customerId(int customerId) {
     return CustomerFinder.customerId().eq(customerId);
   }
 
-  public Operation id(CustomerView customerView) {
+  public Operation customerId(CustomerView customerView) {
     return CustomerFinder.customerId().eq(customerView.getCustomerId());
   }
 
-  public Operation bDate(CustomerView customerView) {
+  public Operation businessDate(CustomerView customerView) {
     return CustomerFinder.businessDate().eq(DateUtils.parse(customerView.getBusinessDate()));
   }
 
-  public Operation pDate() {
+  public Operation businessDate() {
+    return CustomerFinder.businessDate().equalsEdgePoint();
+  }
+
+  public Operation processingDate() {
     return CustomerFinder.processingDate().equalsInfinity();
   }
 }

@@ -30,31 +30,34 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
   @Override
   public CustomerList findByCustomerId(int customerId) {
-    return CustomerFinder.findMany(op.id(customerId));
+    return CustomerFinder.findMany(op.customerId(customerId).and(op.businessDate()));
   }
 
   @Override
   public CustomerList create(CustomerView customerView) {
-    Customer customer = new Customer(customerView);
-    customer.cascadeInsert();
-    return new CustomerList(customer);
+    Customer result = MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
+      Customer customer = new Customer(customerView);
+      customer.cascadeInsert();
+      return customer;
+    });
+    return new CustomerList(result);
   }
 
   @Override
   public CustomerList update(CustomerView customerView) {
-    MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
-      Customer customer = CustomerFinder.findOne(op.id(customerView).and(op.bDate(customerView)));
+    Customer result = MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
+      Customer customer = CustomerFinder.findOne(op.customerId(customerView).and(op.businessDate(customerView)));
       customer.setName(customerView.getName());
       customer.setCountry(customerView.getCountry());
-      return null;
+      return customer;
     });
-    return findByCustomerId(customerView.getCustomerId());
+    return new CustomerList(result);
   }
 
   @Override
   public void terminate(CustomerView customerView) {
     MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
-      Customer customer = CustomerFinder.findOne(op.id(customerView).and(op.bDate(customerView)).and(op.pDate()));
+      Customer customer = CustomerFinder.findOne(op.customerId(customerView).and(op.businessDate(customerView)).and(op.processingDate()));
       customer.terminate();
       return null;
     });
