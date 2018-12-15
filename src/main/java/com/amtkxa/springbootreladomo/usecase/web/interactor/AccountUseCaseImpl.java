@@ -40,17 +40,20 @@ public class AccountUseCaseImpl implements AccountUseCase {
   /** {@inheritDoc} */
   @Override
   public List<? extends AccountView> deposit(TransactionView transactionView) {
-    transactionView.setTransactionType(TransactionType.DEPOSIT);
-    AccountList accountList = accountRepositoryImpl.deposit(transactionView);
-    transactionLogRepositoryImpl.create(transactionView);
+    AccountList accountList = MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
+      transactionView.setTransactionType(TransactionType.DEPOSIT);
+      AccountList txAccountList = accountRepositoryImpl.deposit(transactionView);
+      TransactionLogList txTransactionLogList = transactionLogRepositoryImpl.create(transactionView);
+      return txAccountList;
+    });
     return accountPresenter.response(accountList);
   }
 
   /** {@inheritDoc} */
   @Override
   public List<? extends AccountView> withdrawal(TransactionView transactionView) {
-    transactionView.setTransactionType(TransactionType.WITHDRAWAL);
     AccountList accountList = MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
+      transactionView.setTransactionType(TransactionType.WITHDRAWAL);
       AccountList txAccountList = accountRepositoryImpl.withdrawal(transactionView);
       TransactionLogList txTransactionLogList = transactionLogRepositoryImpl.create(transactionView);
       return txAccountList;
@@ -61,6 +64,9 @@ public class AccountUseCaseImpl implements AccountUseCase {
   /** {@inheritDoc} */
   @Override
   public void terminate(AccountView accountView) {
-    accountRepositoryImpl.terminate(accountView);
+    MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
+      accountRepositoryImpl.terminate(accountView);
+      return null;
+    });
   }
 }

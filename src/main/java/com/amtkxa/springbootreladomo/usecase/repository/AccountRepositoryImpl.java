@@ -36,12 +36,9 @@ public class AccountRepositoryImpl implements AccountRepository {
 
   @Override
   public AccountList deposit(TransactionView transactionView) {
-    Account result = MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
-      Account account = AccountFinder.findOne(op.accountId(transactionView).and(op.businessDate(transactionView)));
-      account.deposit(transactionView);
-      return account;
-    });
-    return new AccountList(result);
+    Account account = AccountFinder.findOne(op.accountId(transactionView).and(op.businessDate(transactionView)));
+    account.deposit(transactionView);
+    return new AccountList(account);
   }
 
   @Override
@@ -53,10 +50,7 @@ public class AccountRepositoryImpl implements AccountRepository {
 
   @Override
   public void terminate(AccountView accountView) {
-    MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
-      Account account = AccountFinder.findOne(op.accountId(accountView).and(op.businessDate(accountView)).and(op.processingDate()));
-      account.terminate();
-      return null;
-    });
+    Account account = AccountFinder.findOne(op.accountId(accountView).and(op.businessDate(accountView)).and(op.processingDate()));
+    account.terminate();
   }
 }
