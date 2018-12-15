@@ -20,7 +20,7 @@ public class AccountView implements Serializable {
   @ApiModelProperty(value = "Customer's account name.")
   private String accountName;
 
-  @ApiModelProperty(value = "Customer's account type.")
+  @ApiModelProperty(value = "Customer's account transactionType.")
   private String accountType;
 
   @ApiModelProperty(value = "Customer's balance.")

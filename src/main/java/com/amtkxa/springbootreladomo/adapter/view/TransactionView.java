@@ -1,14 +1,21 @@
 package com.amtkxa.springbootreladomo.adapter.view;
 
+import com.amtkxa.springbootreladomo.domain.entity.TransactionType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
 import lombok.Data;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
 @Builder
 @Data
 public class TransactionView {
-  @ApiModelProperty(value = "Transaction type.")
-  private String type;
+  @JsonIgnore
+  @Enumerated(EnumType.STRING)
+  @ApiModelProperty(value = "Transaction transactionType.")
+  private TransactionType transactionType;
 
   @ApiModelProperty(value = "Date the change actually occurred.")
   private String transactionDate;

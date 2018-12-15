@@ -24,17 +24,17 @@ public interface AccountUseCase {
   List<? extends AccountView> create(AccountView accountView);
 
   /**
-   * Update a account.
+   * Depositing cash into a registered account.
    *
-   * @parm accountView
+   * @parm transactionView
    * @return list of AccountView
    */
   List<? extends AccountView> deposit(TransactionView transactionView);
 
   /**
-   * Update a account.
+   * Taking cash out of a registered account.
    *
-   * @parm accountView
+   * @parm transactionView
    * @return list of AccountView
    */
   List<? extends AccountView> withdrawal(TransactionView transactionView);

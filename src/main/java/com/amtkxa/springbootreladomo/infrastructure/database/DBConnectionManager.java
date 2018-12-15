@@ -53,7 +53,7 @@ public class DBConnectionManager implements SourcelessConnectionManager {
   }
 
   /**
-   * Returns the database type.
+   * Returns the database transactionType.
    *
    * @apiNote XAConnectionManager is a utility class for a transactional connection manager.
    */

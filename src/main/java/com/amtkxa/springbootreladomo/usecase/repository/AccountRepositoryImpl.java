@@ -46,12 +46,9 @@ public class AccountRepositoryImpl implements AccountRepository {
 
   @Override
   public AccountList withdrawal(TransactionView transactionView) {
-    Account result = MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
-      Account account = AccountFinder.findOne(op.accountId(transactionView).and(op.businessDate(transactionView)));
-      account.withdrawal(transactionView);
-      return account;
-    });
-    return new AccountList(result);
+    Account account = AccountFinder.findOne(op.accountId(transactionView).and(op.businessDate(transactionView)));
+    account.withdrawal(transactionView);
+    return new AccountList(account);
   }
 
   @Override

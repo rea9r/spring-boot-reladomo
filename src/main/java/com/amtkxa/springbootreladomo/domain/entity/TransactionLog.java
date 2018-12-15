@@ -3,8 +3,6 @@ package com.amtkxa.springbootreladomo.domain.entity;
 import com.amtkxa.springbootreladomo.adapter.view.TransactionView;
 import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;
 
-import java.sql.Timestamp;
-
 public class TransactionLog extends TransactionLogAbstract {
   public TransactionLog() {
     super();
@@ -15,7 +13,7 @@ public class TransactionLog extends TransactionLogAbstract {
   public TransactionLog(TransactionView transactionView) {
     super();
     this.setAccountId(transactionView.getAccountId());
-    this.setTransactionType(transactionView.getType());
+    this.setTransactionType(transactionView.getTransactionType().toString());
     this.setAmount(transactionView.getAmount());
     this.setProcessingDate(DateUtils.getCurrentTimestamp());
   }

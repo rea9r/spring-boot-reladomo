@@ -194,7 +194,7 @@
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <!--<xsd:element name="ComputedAttribute" type="ComputedAttributeType" minOccurs="0" maxOccurs="unbounded">-->
+                    <!--<xsd:element name="ComputedAttribute" transactionType="ComputedAttributeType" minOccurs="0" maxOccurs="unbounded">-->
                     <!--<xsd:annotation><xsd:documentation xml:lang="en">-->
                     <!--A computed attribute is defined as a formula using other attributes of this object (but not relationships).-->
                     <!--</xsd:documentation></xsd:annotation>-->
@@ -368,14 +368,14 @@
     <!--<xsd:complexType name="ComputedAttributeType">-->
     <!--<xsd:simpleContent>-->
     <!--<xsd:extension base="xsd:string">-->
-    <!--<xsd:attribute name="name" type="xsd:token" use="required">-->
+    <!--<xsd:attribute name="name" transactionType="xsd:token" use="required">-->
     <!--<xsd:annotation><xsd:documentation xml:lang="en">-->
     <!--The name of the attribute.-->
     <!--</xsd:documentation></xsd:annotation>-->
     <!--</xsd:attribute>-->
-    <!--<xsd:attribute name="javaType" type="xsd:token" use="required">-->
+    <!--<xsd:attribute name="javaType" transactionType="xsd:token" use="required">-->
     <!--<xsd:annotation><xsd:documentation xml:lang="en">-->
-    <!--The java type of this attribute.-->
+    <!--The java transactionType of this attribute.-->
     <!--</xsd:documentation></xsd:annotation>-->
     <!--</xsd:attribute>-->
     <!--</xsd:extension>-->
@@ -855,7 +855,7 @@
             <xsd:extension base="xsd:string">
                 <!--
                                 <xsd:sequence>
-                                    <xsd:element name="JavaDoc" type="JavaDocType" minOccurs="0" maxOccurs="1">
+                                    <xsd:element name="JavaDoc" transactionType="JavaDocType" minOccurs="0" maxOccurs="1">
                                         <xsd:annotation><xsd:documentation xml:lang="en">
                                             Comment to be added tot he JavaDoc on the implementation of this relationship.
                                         </xsd:documentation></xsd:annotation>
