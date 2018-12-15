@@ -15,7 +15,6 @@
                            incrementSize="1"/>
     </Attribute>
     <Attribute name="accountId" javaType="int" columnName="ACCOUNT_ID" nullable="false"/>
-    <Attribute name="customerId" javaType="int" columnName="CUSTOMER_ID" nullable="false"/>
     <Attribute name="transactionType" javaType="String" columnName="TRANSACTION_TYPE" nullable="false" maxLength="32"/>
     <Attribute name="amount" javaType="double" columnName="AMOUNT"/>
 </MithraObject>
