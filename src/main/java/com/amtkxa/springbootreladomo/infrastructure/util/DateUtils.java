@@ -28,4 +28,8 @@ public class DateUtils {
   public static String print(Timestamp ts) {
     return DATE_TIME_FORMATTER.print(ts.getTime());
   }
+
+  public static Timestamp getCurrentTimestamp() {
+    return new Timestamp(System.currentTimeMillis());
+  }
 }
