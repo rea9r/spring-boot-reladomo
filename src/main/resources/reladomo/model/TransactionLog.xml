@@ -1,0 +1,21 @@
+<MithraObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              objectType="transactional"
+              xsi:noNamespaceSchemaLocation="../config/mithraobject.xsd">
+    <PackageName>com.amtkxa.springbootreladomo.domain.entity</PackageName>
+    <ClassName>TransactionLog</ClassName>
+    <DefaultTable>TRANSACTION_LOG</DefaultTable>
+
+    <Attribute name="logId" javaType="int" columnName="LOG_ID" primaryKey="true"
+               primaryKeyGeneratorStrategy="SimulatedSequence">
+        <SimulatedSequence sequenceName="Account"
+                           sequenceObjectFactoryName="com.amtkxa.springbootreladomo.infrastructure.util.ObjectSequenceObjectFactory"
+                           hasSourceAttribute="false"
+                           batchSize="1"
+                           initialValue="1"
+                           incrementSize="1"/>
+    </Attribute>
+    <Attribute name="accountId" javaType="int" columnName="ACCOUNT_ID" nullable="false"/>
+    <Attribute name="customerId" javaType="int" columnName="CUSTOMER_ID" nullable="false"/>
+    <Attribute name="transactionType" javaType="String" columnName="TRANSACTION_TYPE" nullable="false" maxLength="32"/>
+    <Attribute name="amount" javaType="double" columnName="AMOUNT"/>
+</MithraObject>

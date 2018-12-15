@@ -2,8 +2,9 @@
 <MithraRuntime xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:noNamespaceSchemaLocation="mithraruntime.xsd">
     <ConnectionManager className="com.amtkxa.springbootreladomo.infrastructure.database.DBConnectionManager">
+        <MithraObjectConfiguration className="com.amtkxa.springbootreladomo.domain.entity.ObjectSequence" cacheType="partial"/>
         <MithraObjectConfiguration className="com.amtkxa.springbootreladomo.domain.entity.Customer" cacheType="partial"/>
         <MithraObjectConfiguration className="com.amtkxa.springbootreladomo.domain.entity.Account" cacheType="partial"/>
-        <MithraObjectConfiguration className="com.amtkxa.springbootreladomo.domain.entity.ObjectSequence" cacheType="partial"/>
+        <MithraObjectConfiguration className="com.amtkxa.springbootreladomo.domain.entity.TransactionLog" cacheType="partial"/>
     </ConnectionManager>
 </MithraRuntime>
