@@ -1,6 +1,7 @@
 package com.amtkxa.springbootreladomo.adapter.view;
 
 import com.amtkxa.springbootreladomo.domain.entity.TransactionType;
+import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
@@ -8,6 +9,7 @@ import lombok.Data;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import java.sql.Timestamp;
 
 @Builder
 @Data
@@ -18,7 +20,7 @@ public class TransactionView {
   private TransactionType transactionType;
 
   @ApiModelProperty(value = "Date the change actually occurred.")
-  private String transactionDate;
+  private Timestamp transactionDate;
 
   @ApiModelProperty(value = "Account ID.")
   private int accountId;

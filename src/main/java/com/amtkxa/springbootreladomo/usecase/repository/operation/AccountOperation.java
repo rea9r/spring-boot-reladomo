@@ -7,6 +7,8 @@ import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;
 import com.gs.fw.common.mithra.finder.Operation;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class AccountOperation {
   public Operation accountId(int accountId) {
@@ -30,7 +32,7 @@ public class AccountOperation {
   }
 
   public Operation businessDate(TransactionView transactionView) {
-    return AccountFinder.businessDate().eq(DateUtils.parse(transactionView.getTransactionDate()));
+    return AccountFinder.businessDate().eq(Optional.ofNullable(transactionView.getTransactionDate()).orElse(DateUtils.getCurrentTimestamp()));
   }
 
   public Operation businessDate() {
