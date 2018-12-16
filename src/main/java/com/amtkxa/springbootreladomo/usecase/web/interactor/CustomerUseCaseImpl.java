@@ -21,28 +21,36 @@ public class CustomerUseCaseImpl implements CustomerUseCase {
   @NonNull private final CustomerPresenterImpl customerPresenter;
   @NonNull private final AccountRepositoryImpl accountRepositoryImpl;
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public List<? extends CustomerView> findAll() {
     CustomerList customerList = customerRepositoryImpl.findAll();
     return customerPresenter.response(customerList);
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public List<? extends CustomerView> findByCustomerId(int customerId) {
     CustomerList customerList = customerRepositoryImpl.findByCustomerId(customerId);
     return customerPresenter.response(customerList);
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public List<? extends CustomerView> create(CustomerView customerView) {
     CustomerList customerList = customerRepositoryImpl.create(customerView);
     return customerPresenter.response(customerList);
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public List<? extends CustomerView> update(CustomerView customerView) {
     CustomerList customerList = MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
@@ -52,7 +60,9 @@ public class CustomerUseCaseImpl implements CustomerUseCase {
     return customerPresenter.response(customerList);
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void terminate(int customerId) {
     MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {

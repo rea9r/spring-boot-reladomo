@@ -8,15 +8,15 @@ import java.util.List;
 public interface AccountUseCase {
 
   /**
-   * Search a account with an ID.
+   * Retrieve an account with an accountId.
    *
-   * @parm customerId
+   * @parm accountId
    * @return list of AccountView
    */
-  List<? extends AccountView> findByAccountId(int customerId);
+  List<? extends AccountView> findByAccountId(int accountId);
 
   /**
-   * Create a account.
+   * Create an account.
    *
    * @parm accountView
    * @return list of AccountView
@@ -40,7 +40,7 @@ public interface AccountUseCase {
   List<? extends AccountView> withdrawal(TransactionView transactionView);
 
   /**
-   * Terminate a account.
+   * Terminate an account.
    *
    * @parm accountId
    * @return list of AccountView

@@ -23,21 +23,27 @@ public class AccountUseCaseImpl implements AccountUseCase {
   @NonNull private final AccountPresenterImpl accountPresenter;
   @NonNull private final TransactionLogRepositoryImpl transactionLogRepositoryImpl;
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public List<? extends AccountView> findByAccountId(int accountId) {
     AccountList accountList = accountRepositoryImpl.findByAccountId(accountId);
     return accountPresenter.response(accountList);
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public List<? extends AccountView> create(AccountView accountView) {
     AccountList accountList = accountRepositoryImpl.create(accountView);
     return accountPresenter.response(accountList);
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public List<? extends AccountView> deposit(TransactionView transactionView) {
     AccountList accountList = MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
@@ -49,7 +55,9 @@ public class AccountUseCaseImpl implements AccountUseCase {
     return accountPresenter.response(accountList);
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public List<? extends AccountView> withdrawal(TransactionView transactionView) {
     AccountList accountList = MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
@@ -61,7 +69,9 @@ public class AccountUseCaseImpl implements AccountUseCase {
     return accountPresenter.response(accountList);
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void terminate(int accountId) {
     MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {

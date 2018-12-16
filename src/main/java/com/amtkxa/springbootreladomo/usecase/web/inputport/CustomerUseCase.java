@@ -7,14 +7,14 @@ import java.util.List;
 public interface CustomerUseCase {
 
   /**
-   * Search all customer.
+   * Retrieve all customer.
    *
    * @return list of CustomerView
    */
   List<? extends CustomerView> findAll();
 
   /**
-   * Search a customer with an ID.
+   * Retrieve a customer with a customerId.
    *
    * @parm customerId
    * @return list of CustomerView
@@ -38,7 +38,7 @@ public interface CustomerUseCase {
   List<? extends CustomerView> update(CustomerView customerView);
 
   /**
-   * Terminate a customer.
+   * Terminate a customer and customers all accounts.
    *
    * @parm customerId
    */
