@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 /**
- * {@link CustomerRepository} to retrieve and update account data.
+ * {@link CustomerRepository} to retrieve and update customer data.
  */
 @Repository
 @RequiredArgsConstructor
