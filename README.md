@@ -1,8 +1,10 @@
 # spring-boot-reladomo
+## Description
 REST APIs implemented using Spring Boot, Reladomo
 
-## Description
-
+### Feature
+The feature of this application is that you can use the Reladomo API to easily update the Bitemporal data model without losing history. <br>
+This makes it possible to rewind the information to "as it actually was" in combination with "as it was recorded" at some point in time.
 
 ### Domain model
 A simple domain model of this application can be expressed in UML as follows.
@@ -30,13 +32,11 @@ Running this command does the following.
 * Generate Java source code and DDL script from Reladomo XML file.
 * Compiles source code, and making a Jar file.
 
-### Database
-
 ## Run the project
 Run the backend API server with following command.
 ```
 mvn spring-boot:run
 ```
 
-There is a Swagger UI configured for visualizing the REST APIs.
+There is a Swagger UI configured for visualizing the REST APIs.<br>
 [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
