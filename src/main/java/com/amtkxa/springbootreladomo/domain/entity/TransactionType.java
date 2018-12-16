@@ -1,5 +1,12 @@
 package com.amtkxa.springbootreladomo.domain.entity;
 
+/**
+ * Identifies the type of transaction.
+ */
 public enum TransactionType {
-  WITHDRAWAL, DEPOSIT
+  // Removing funds from a account.
+  WITHDRAWAL,
+
+  // Adding funds into a registered account.
+  DEPOSIT
 }
