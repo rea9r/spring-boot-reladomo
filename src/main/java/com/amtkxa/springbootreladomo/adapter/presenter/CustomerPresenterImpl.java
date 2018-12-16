@@ -10,6 +10,9 @@ import java.util.stream.Collectors;
 
 @Component
 public class CustomerPresenterImpl implements CustomerPresenter {
+  /**
+   * {@inheritDoc}
+   */
   public List<? extends CustomerView> response(CustomerList customerList) {
     return customerList
             .stream()
