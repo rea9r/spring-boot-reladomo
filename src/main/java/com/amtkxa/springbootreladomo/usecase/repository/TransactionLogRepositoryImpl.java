@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 /**
- * {@link TransactionLogRepository} for retrieving customer data.
+ * {@link TransactionLogRepository} to retrieve and update account data.
  */
 @Repository
 @RequiredArgsConstructor
