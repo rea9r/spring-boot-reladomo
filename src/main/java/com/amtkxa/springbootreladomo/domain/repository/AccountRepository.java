@@ -23,5 +23,7 @@ public interface AccountRepository {
 
   AccountList withdrawal(TransactionView transactionView);
 
-  void terminate(AccountView accountView);
+  void terminateByAccountId(int accountId);
+
+  void terminateByCustomerId(int customerId);
 }

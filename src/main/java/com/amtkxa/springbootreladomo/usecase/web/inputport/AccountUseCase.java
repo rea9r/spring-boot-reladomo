@@ -42,8 +42,8 @@ public interface AccountUseCase {
   /**
    * Terminate a account.
    *
-   * @parm accountView
+   * @parm accountId
    * @return list of AccountView
    */
-  void terminate(AccountView accountView);
+  void terminate(int accountId);
 }

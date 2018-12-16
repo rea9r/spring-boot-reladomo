@@ -14,7 +14,7 @@ public class AccountPresenterImpl implements AccountPresenter {
     return accountList
         .stream()
         .filter(c -> c != null)
-        .map(c -> AccountView.fromCustomerAccount(c))
+        .map(c -> AccountView.fromAccount(c))
         .collect(Collectors.toList());
   }
 }

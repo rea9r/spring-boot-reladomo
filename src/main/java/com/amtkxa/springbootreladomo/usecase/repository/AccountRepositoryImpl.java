@@ -49,8 +49,14 @@ public class AccountRepositoryImpl implements AccountRepository {
   }
 
   @Override
-  public void terminate(AccountView accountView) {
-    Account account = AccountFinder.findOne(op.accountId(accountView).and(op.businessDate(accountView)).and(op.processingDate()));
+  public void terminateByAccountId(int accountId) {
+    Account account = AccountFinder.findOne(op.accountId(accountId).and(op.businessDate()).and(op.processingDate()));
     account.terminate();
+  }
+
+  @Override
+  public void terminateByCustomerId(int customerId) {
+    AccountList accountList = AccountFinder.findMany(op.customerId(customerId).and(op.businessDate()).and(op.processingDate()));
+    accountList.terminateAll();
   }
 }

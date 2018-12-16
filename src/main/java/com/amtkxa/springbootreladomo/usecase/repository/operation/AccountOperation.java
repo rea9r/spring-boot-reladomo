@@ -7,10 +7,12 @@ import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;
 import com.gs.fw.common.mithra.finder.Operation;
 import org.springframework.stereotype.Component;
 
-import java.util.Optional;
-
 @Component
 public class AccountOperation {
+  public Operation customerId(int customerId) {
+    return AccountFinder.customerId().eq(customerId);
+  }
+
   public Operation accountId(int accountId) {
     return AccountFinder.accountId().eq(accountId);
   }
@@ -28,11 +30,11 @@ public class AccountOperation {
   }
 
   public Operation businessDate(AccountView accountView) {
-    return AccountFinder.businessDate().eq(DateUtils.parse(accountView.getBusinessDate()));
+    return AccountFinder.businessDate().eq(accountView.getBusinessDate());
   }
 
   public Operation businessDate(TransactionView transactionView) {
-    return AccountFinder.businessDate().eq(Optional.ofNullable(transactionView.getTransactionDate()).orElse(DateUtils.getCurrentTimestamp()));
+    return AccountFinder.businessDate().eq(transactionView.getTransactionDate());
   }
 
   public Operation businessDate() {

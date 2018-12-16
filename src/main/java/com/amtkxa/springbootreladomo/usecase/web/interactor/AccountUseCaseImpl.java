@@ -63,9 +63,9 @@ public class AccountUseCaseImpl implements AccountUseCase {
 
   /** {@inheritDoc} */
   @Override
-  public void terminate(AccountView accountView) {
+  public void terminate(int accountId) {
     MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
-      accountRepositoryImpl.terminate(accountView);
+      accountRepositoryImpl.terminateByAccountId(accountId);
       return null;
     });
   }

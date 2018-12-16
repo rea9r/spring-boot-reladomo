@@ -17,9 +17,9 @@ public class AccountController {
   @NonNull
   private final AccountUseCaseImpl accountUseCaseImpl;
 
-  @GetMapping(value = "/api/account/{customerId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-  public List<? extends AccountView> getAccountByCustomerId(@PathVariable("customerId") int customerId) {
-    return accountUseCaseImpl.findByAccountId(customerId);
+  @GetMapping(value = "/api/account/{accountId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+  public List<? extends AccountView> getAccountByAccountId(@PathVariable("accountId") int accountId) {
+    return accountUseCaseImpl.findByAccountId(accountId);
   }
 
   @PostMapping(value = "/api/account", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -37,8 +37,8 @@ public class AccountController {
     return accountUseCaseImpl.withdrawal(transactionView);
   }
 
-  @DeleteMapping(value = "/api/account", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-  public void deleteAccount(@RequestBody AccountView accountView) {
-    accountUseCaseImpl.terminate(accountView);
+  @DeleteMapping(value = "/api/account/{accountId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+  public void deleteAccount(@PathVariable("accountId") int accountId) {
+    accountUseCaseImpl.terminate(accountId);
   }
 }
