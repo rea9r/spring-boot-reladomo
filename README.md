@@ -3,6 +3,7 @@ REST APIs implemented using Spring Boot, Reladomo
 
 ## Description
 
+
 ### Domain model
 A simple domain model of this application can be expressed in UML as follows.
 ![domain_model](https://user-images.githubusercontent.com/32428472/50054750-b2e45800-0188-11e9-8aeb-fad5262e78d8.png)
@@ -26,14 +27,13 @@ mvn clean install
 ```
 Running this command does the following.
 * Installs artifacts into the local maven repository.
-* Generate Java source code from Reladomo XML file.
-* Generate DDL script from Reladomo XML file.
+* Generate Java source code and DDL script from Reladomo XML file.
 * Compiles source code, and making a Jar file.
 
 ### Database
 
 ## Run the project
-Run the backend API server with `spring-boot` command.
+Run the backend API server with following command.
 ```
 mvn spring-boot:run
 ```
