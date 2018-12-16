@@ -1,8 +1,7 @@
 # spring-boot-reladomo
-## Description
 REST APIs implemented using Spring Boot, Reladomo
 
-### Feature
+## Description
 The feature of this application is that you can use the Reladomo API to easily update the Bitemporal data model without losing history.
 This makes it possible to rewind the information to "as it actually was" in combination with "as it was recorded" at some point in time.
 
