@@ -5,7 +5,7 @@ REST APIs implemented using Spring Boot, Reladomo
 
 ### Domain model
 A simple domain model of this application can be expressed in UML as follows.
-![domain_model](https://user-images.githubusercontent.com/32428472/50053527-df44a800-0179-11e9-8074-6644a293a375.png)
+![domain_model](https://user-images.githubusercontent.com/32428472/50054750-b2e45800-0188-11e9-8aeb-fad5262e78d8.png)
 
 ## Requirements
 * JDK 8
