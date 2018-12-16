@@ -13,8 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CustomerController {
 
-  @NonNull
-  private final CustomerUseCaseImpl customerUseCaseImpl;
+  @NonNull private final CustomerUseCaseImpl customerUseCaseImpl;
 
   @GetMapping(value = "/api/customer", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public List<? extends CustomerView> getAllCustomer() {

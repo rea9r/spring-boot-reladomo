@@ -19,8 +19,7 @@ import org.springframework.stereotype.Repository;
 @RequiredArgsConstructor
 public class AccountRepositoryImpl implements AccountRepository {
 
-  @NonNull
-  AccountOperation op;
+  @NonNull AccountOperation op;
 
   @Override
   public AccountList findByAccountId(int accountId) {

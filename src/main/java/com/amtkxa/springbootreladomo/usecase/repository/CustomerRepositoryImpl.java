@@ -19,8 +19,7 @@ import org.springframework.stereotype.Repository;
 @RequiredArgsConstructor
 public class CustomerRepositoryImpl implements CustomerRepository {
 
-  @NonNull
-  private CustomerOperation op;
+  @NonNull private CustomerOperation op;
 
   @Override
   public CustomerList findAll() {

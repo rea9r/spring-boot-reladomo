@@ -15,8 +15,7 @@ import org.springframework.stereotype.Repository;
 @RequiredArgsConstructor
 public class TransactionLogRepositoryImpl implements TransactionLogRepository {
 
-  @NonNull
-  private TransactionLogOperation op;
+  @NonNull private TransactionLogOperation op;
 
   @Override
   public TransactionLogList findByAccountId(int accountId) {

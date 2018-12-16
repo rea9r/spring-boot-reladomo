@@ -14,8 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AccountController {
 
-  @NonNull
-  private final AccountUseCaseImpl accountUseCaseImpl;
+  @NonNull private final AccountUseCaseImpl accountUseCaseImpl;
 
   @GetMapping(value = "/api/account/{accountId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public List<? extends AccountView> getAccountByAccountId(@PathVariable("accountId") int accountId) {
