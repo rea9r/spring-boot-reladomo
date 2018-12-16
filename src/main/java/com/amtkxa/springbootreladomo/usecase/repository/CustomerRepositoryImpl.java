@@ -24,8 +24,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
   @Override
   public CustomerList findAll() {
-    Operation ts = CustomerFinder.businessDate().equalsEdgePoint();
-    return CustomerFinder.findMany(ts);
+    return CustomerFinder.findMany(op.businessDate());
   }
 
   @Override
@@ -35,32 +34,23 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
   @Override
   public CustomerList create(CustomerView customerView) {
-    Customer result = MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
-      Customer customer = new Customer(customerView);
-      customer.cascadeInsert();
-      return customer;
-    });
-    return new CustomerList(result);
+    Customer customer = new Customer(customerView);
+    customer.cascadeInsert();
+    return new CustomerList(customer);
   }
 
   @Override
   public CustomerList update(CustomerView customerView) {
-    Customer result = MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
-      Customer customer = CustomerFinder.findOne(op.customerId(customerView).and(op.businessDate(customerView)));
-      customer.setName(customerView.getName());
-      customer.setCountry(customerView.getCountry());
-      return customer;
-    });
-    return new CustomerList(result);
+    Customer customer = CustomerFinder.findOne(op.customerId(customerView).and(op.businessDate(customerView)));
+    customer.setName(customerView.getName());
+    customer.setCountry(customerView.getCountry());
+    return new CustomerList(customer);
   }
 
   @Override
-  public void terminate(CustomerView customerView) {
-    MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
-      Customer customer = CustomerFinder.findOne(op.customerId(customerView).and(op.businessDate(customerView)).and(op.processingDate()));
-      customer.terminate();
-      return null;
-    });
+  public void terminate(int customerId) {
+    Customer customer = CustomerFinder.findOne(op.customerId(customerId).and(op.businessDate()).and(op.processingDate()));
+    customer.terminate();
   }
 
 }

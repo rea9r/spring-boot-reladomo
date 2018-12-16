@@ -1,6 +1,5 @@
 package com.amtkxa.springbootreladomo.domain.entity;
 
-import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;
 import com.amtkxa.springbootreladomo.adapter.view.CustomerView;
 
 import java.sql.Timestamp;
@@ -13,7 +12,7 @@ public class Customer extends CustomerAbstract {
   }
 
   public Customer(CustomerView customerView) {
-    super(DateUtils.parse(customerView.getBusinessDate()));
+    super(customerView.getBusinessDate());
     this.setName(customerView.getName());
     this.setCountry(customerView.getCountry());
   }

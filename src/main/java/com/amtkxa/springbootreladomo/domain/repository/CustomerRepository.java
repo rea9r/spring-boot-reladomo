@@ -25,5 +25,5 @@ public interface CustomerRepository {
 
   CustomerList update(CustomerView customerView);
 
-  void terminate(CustomerView customerView);
+  void terminate(int customerId);
 }

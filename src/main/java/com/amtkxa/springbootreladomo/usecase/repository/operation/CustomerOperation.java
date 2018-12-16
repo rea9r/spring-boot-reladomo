@@ -17,7 +17,7 @@ public class CustomerOperation {
   }
 
   public Operation businessDate(CustomerView customerView) {
-    return CustomerFinder.businessDate().eq(DateUtils.parse(customerView.getBusinessDate()));
+    return CustomerFinder.businessDate().eq(customerView.getBusinessDate());
   }
 
   public Operation businessDate() {

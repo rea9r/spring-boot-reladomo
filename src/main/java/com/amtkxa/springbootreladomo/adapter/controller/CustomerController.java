@@ -36,8 +36,8 @@ public class CustomerController {
     return customerUseCaseImpl.update(customerView);
   }
 
-  @DeleteMapping(value = "/api/customer", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-  public void deleteCustomer(@RequestBody CustomerView customerView) {
-    customerUseCaseImpl.terminate(customerView);
+  @DeleteMapping(value = "/api/customer/{customerId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+  public void deleteCustomer(@PathVariable("customerId") int customerId) {
+    customerUseCaseImpl.terminate(customerId);
   }
 }

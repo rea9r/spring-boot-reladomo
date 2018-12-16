@@ -40,8 +40,7 @@ public interface CustomerUseCase {
   /**
    * Terminate a customer.
    *
-   * @parm customerView
-   * @return list of CustomerView
+   * @parm customerId
    */
-  void terminate(CustomerView customerView);
+  void terminate(int customerId);
 }
