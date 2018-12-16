@@ -19,11 +19,10 @@ yarn-error.log
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-/out/
+.idea/copyright/**
+.idea/libraries/**
+.idea/uiDesigner.xml
+.idea/workspace.xml
 
 ### NetBeans ###
 /nbproject/private/
