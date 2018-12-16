@@ -20,7 +20,7 @@ import java.sql.Timestamp;
 public class TransactionView {
   @JsonIgnore
   @Enumerated(EnumType.STRING)
-  @ApiModelProperty(value = "Transaction transactionType.")
+  @ApiModelProperty(value = "The type of transaction.")
   private TransactionType transactionType;
 
   @Builder.Default
@@ -30,7 +30,7 @@ public class TransactionView {
   @ApiModelProperty(value = "Account ID.")
   private int accountId;
 
-  @ApiModelProperty(value = "Customer's balance.")
+  @ApiModelProperty(value = "Transaction amount.")
   private double amount;
 
 }
