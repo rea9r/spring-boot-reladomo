@@ -5,6 +5,6 @@
         <MithraObjectConfiguration className="com.amtkxa.springbootreladomo.domain.entity.ObjectSequence" cacheType="partial"/>
         <MithraObjectConfiguration className="com.amtkxa.springbootreladomo.domain.entity.Customer" cacheType="partial"/>
         <MithraObjectConfiguration className="com.amtkxa.springbootreladomo.domain.entity.Account" cacheType="partial"/>
-        <MithraObjectConfiguration className="com.amtkxa.springbootreladomo.domain.entity.TransactionLog" cacheType="partial"/>
+        <MithraObjectConfiguration className="com.amtkxa.springbootreladomo.domain.entity.Transaction" cacheType="partial"/>
     </ConnectionManager>
 </MithraRuntime>

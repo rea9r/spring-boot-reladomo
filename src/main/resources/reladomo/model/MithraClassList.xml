@@ -4,5 +4,5 @@
     <MithraObjectResource name="ObjectSequence"/>
     <MithraObjectResource name="Customer"/>
     <MithraObjectResource name="Account"/>
-    <MithraObjectResource name="TransactionLog"/>
+    <MithraObjectResource name="Transaction"/>
 </Mithra>
