@@ -6,10 +6,10 @@ The feature of this application is that you can use the Reladomo API to easily u
 This makes it possible to rewind the information to "as it actually was" in combination with "as it was recorded" at some point in time.
 
 ### Technology stack
-* Spring Boot
-* Swagger
-* Lombok
-* Reladomo
+* [Spring Boot](https://github.com/spring-projects/spring-boot)
+* [Swagger](https://github.com/swagger-api/swagger-ui)
+* [Lombok](https://github.com/rzwitserloot/lombok)
+* [Reladomo](https://github.com/goldmansachs/reladomo)
 
 ### Domain model
 A simple domain model of this application can be expressed in UML as follows.
