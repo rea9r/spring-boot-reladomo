@@ -9,11 +9,6 @@ import com.amtkxa.springbootreladomo.domain.entity.TransactionLogList;
  */
 public interface TransactionLogRepository {
 
-  /**
-   * Get a List of {@link TransactionLog}.
-   *
-   * @param accountId The account customerId used to retrieve account data.
-   */
   TransactionLogList findByAccountId(int accountId);
 
   TransactionLogList create(TransactionView transactionView);

@@ -10,11 +10,6 @@ import com.amtkxa.springbootreladomo.adapter.view.AccountView;
  */
 public interface AccountRepository {
 
-  /**
-   * Get a List of {@link Account}.
-   *
-   * @param accountId The account customerId used to retrieve account data.
-   */
   AccountList findByAccountId(int accountId);
 
   AccountList create(AccountView accountView);
