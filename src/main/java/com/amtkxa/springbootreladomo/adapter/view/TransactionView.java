@@ -19,6 +19,10 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 public class TransactionView {
   @JsonIgnore
+  @ApiModelProperty(value = "Transaction ID.")
+  private int transactionId;
+
+  @JsonIgnore
   @Enumerated(EnumType.STRING)
   @ApiModelProperty(value = "The type of transaction.")
   private TransactionType transactionType;
