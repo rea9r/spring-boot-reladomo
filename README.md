@@ -27,7 +27,6 @@ git clone https://github.com/amtkxa/spring-boot-reladomo
 ```
 
 ## Initial setting
-### Maven
 Run the following command.
 ```
 mvn clean install
