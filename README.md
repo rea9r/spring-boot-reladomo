@@ -5,6 +5,12 @@ REST APIs implemented using Spring Boot, Reladomo
 The feature of this application is that you can use the Reladomo API to easily update the Bitemporal data model without losing history.
 This makes it possible to rewind the information to "as it actually was" in combination with "as it was recorded" at some point in time.
 
+### Technology stack
+* Spring Boot
+* Swagger
+* Lombok
+* Reladomo
+
 ### Domain model
 A simple domain model of this application can be expressed in UML as follows.
 ![domain_model](https://user-images.githubusercontent.com/32428472/50054750-b2e45800-0188-11e9-8aeb-fad5262e78d8.png)
