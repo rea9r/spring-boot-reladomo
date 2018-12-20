@@ -17,7 +17,6 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AccountView implements Serializable {
-  @JsonIgnore
   @ApiModelProperty(value = "Account ID.")
   private int accountId;
 
