@@ -1,5 +1,6 @@
 package com.amtkxa.springbootreladomo.infrastructure.config;
 
+import com.google.common.base.Predicates;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -11,14 +12,13 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
-@Profile(value = "local")
 public class SwaggerConfig {
   @Bean
   public Docket api() {
     return new Docket(DocumentationType.SWAGGER_2)
             .select()
             .apis(RequestHandlerSelectors.any())
-            .paths(PathSelectors.any())
+            .paths(Predicates.not(PathSelectors.regex("/error.*")))
             .build();
   }
 }
