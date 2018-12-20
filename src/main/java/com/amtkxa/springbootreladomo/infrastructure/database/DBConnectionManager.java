@@ -7,19 +7,20 @@ import com.gs.fw.common.mithra.connectionmanager.XAConnectionManager;
 import com.gs.fw.common.mithra.databasetype.DatabaseType;
 
 import java.sql.Connection;
+import java.util.Properties;
 import java.util.TimeZone;
 
 public class DBConnectionManager implements SourcelessConnectionManager {
   protected static DBConnectionManager instance;
   private XAConnectionManager xaConnectionManager;
 
-  protected DBConnectionManager() {
-    this.createConnectionManager();
+  protected DBConnectionManager(Properties properties) {
+    this.createConnectionManager(properties);
   }
 
-  public static synchronized DBConnectionManager getInstance() {
+  public static synchronized DBConnectionManager getInstance(Properties properties) {
     if (instance == null) {
-      instance = new DBConnectionManager();
+      instance = new DBConnectionManager(properties);
     }
     return instance;
   }
@@ -29,13 +30,13 @@ public class DBConnectionManager implements SourcelessConnectionManager {
    *
    * @apiNote XAConnectionManager is a utility class for a transactional connection manager.
    */
-  private void createConnectionManager() {
+  private void createConnectionManager(Properties properties) {
     this.xaConnectionManager = new XAConnectionManager();
-    xaConnectionManager.setDriverClassName("org.postgresql.Driver");
-    xaConnectionManager.setJdbcConnectionString("jdbc:postgresql://localhost:5432/sampledb");
-    xaConnectionManager.setJdbcUser("testuser");
-    xaConnectionManager.setJdbcPassword("testuser");
-    xaConnectionManager.setPoolName("My Connection Pool");
+    xaConnectionManager.setDriverClassName(properties.getProperty("jdbcDriverClassName"));
+    xaConnectionManager.setJdbcConnectionString(properties.getProperty("jdbcConnectionString"));
+    xaConnectionManager.setJdbcUser(properties.getProperty("jdbcUser"));
+    xaConnectionManager.setJdbcPassword(properties.getProperty("jdbcPassword"));
+    xaConnectionManager.setPoolName(properties.getProperty("PoolName"));
     xaConnectionManager.setInitialSize(1);
     xaConnectionManager.setPoolSize(10);
     xaConnectionManager.initialisePool();

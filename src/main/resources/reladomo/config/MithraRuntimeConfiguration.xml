@@ -2,6 +2,14 @@
 <MithraRuntime xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:noNamespaceSchemaLocation="mithraruntime.xsd">
     <ConnectionManager className="com.amtkxa.springbootreladomo.infrastructure.database.DBConnectionManager">
+        <Property name="jdbcDriverClassName" value="org.postgresql.Driver"/>
+        <Property name="jdbcConnectionString" value="jdbc:postgresql://localhost:5432/sampledb"/>
+        <Property name="jdbcUser" value="testuser"/>
+        <Property name="jdbcPassword" value="testuser"/>
+        <Property name="PoolName" value="My Connection Pool"/>
+        <Property name="InitialSize" value="1"/>
+        <Property name="PoolSize" value="0"/>
+
         <MithraObjectConfiguration className="com.amtkxa.springbootreladomo.domain.entity.ObjectSequence" cacheType="partial"/>
         <MithraObjectConfiguration className="com.amtkxa.springbootreladomo.domain.entity.Customer" cacheType="partial"/>
         <MithraObjectConfiguration className="com.amtkxa.springbootreladomo.domain.entity.Account" cacheType="partial"/>
