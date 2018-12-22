@@ -14,15 +14,42 @@ public class DBConnectionManager implements SourcelessConnectionManager {
   protected static DBConnectionManager instance;
   private XAConnectionManager xaConnectionManager;
 
-  protected DBConnectionManager(Properties properties) {
-    this.createConnectionManager(properties);
-  }
+  public static final String JDBC_DRIVER_CLASS_NAME_KEY = "jdbcDriverClassName";
+  public static final String JDBC_SUB_PROTOCOL = "jdbcSubProtocol";
+  public static final String HOST_KEY = "host";
+  public static final String PORT_KEY = "port";
+  public static final String DATABASE_KEY = "database";
+  public static final String USERNAME_KEY = "username";
+  public static final String PASSWORD_KEY = "password";
+  public static final String TIMEZONE_KEY = "timeZone";
+
+  private String jdbcDriverClassName;
+  private String jdbcSubProtocol;
+  private String host;
+  private String port;
+  private String database;
+  private String username;
+  private String password;
+  private TimeZone timeZone;
 
   public static synchronized DBConnectionManager getInstance(Properties properties) {
     if (instance == null) {
-      instance = new DBConnectionManager(properties);
+      instance = new DBConnectionManager();
     }
+    instance.init(properties);
     return instance;
+  }
+
+  private void init(Properties properties) {
+    this.jdbcDriverClassName = properties.getProperty(JDBC_DRIVER_CLASS_NAME_KEY);
+    this.jdbcSubProtocol = properties.getProperty(JDBC_SUB_PROTOCOL);
+    this.host = properties.getProperty(HOST_KEY);
+    this.port = properties.getProperty(PORT_KEY);
+    this.database = properties.getProperty(DATABASE_KEY);
+    this.username = properties.getProperty(USERNAME_KEY);
+    this.password = properties.getProperty(PASSWORD_KEY);
+    this.timeZone = TimeZone.getTimeZone(properties.getProperty(TIMEZONE_KEY));
+    this.createConnectionManager();
   }
 
   /**
@@ -30,13 +57,13 @@ public class DBConnectionManager implements SourcelessConnectionManager {
    *
    * @apiNote XAConnectionManager is a utility class for a transactional connection manager.
    */
-  private void createConnectionManager(Properties properties) {
+  private void createConnectionManager() {
     this.xaConnectionManager = new XAConnectionManager();
-    xaConnectionManager.setDriverClassName(properties.getProperty("jdbcDriverClassName"));
-    xaConnectionManager.setJdbcConnectionString(properties.getProperty("jdbcConnectionString"));
-    xaConnectionManager.setJdbcUser(properties.getProperty("jdbcUser"));
-    xaConnectionManager.setJdbcPassword(properties.getProperty("jdbcPassword"));
-    xaConnectionManager.setPoolName(properties.getProperty("PoolName"));
+    xaConnectionManager.setDriverClassName(jdbcDriverClassName);
+    xaConnectionManager.setJdbcConnectionString("jdbc:" + jdbcSubProtocol+ "://" + host + ":" + port + "/" + database);
+    xaConnectionManager.setJdbcUser(username);
+    xaConnectionManager.setJdbcPassword(password);
+    xaConnectionManager.setPoolName(host + ":" + database + ": connection pool");
     xaConnectionManager.setInitialSize(1);
     xaConnectionManager.setPoolSize(10);
     xaConnectionManager.initialisePool();
@@ -70,7 +97,7 @@ public class DBConnectionManager implements SourcelessConnectionManager {
    */
   @Override
   public TimeZone getDatabaseTimeZone() {
-    return TimeZone.getTimeZone("Asia/Tokyo");
+    return timeZone;
   }
 
   /**
