@@ -15,7 +15,7 @@ public class DBConnectionManager implements SourcelessConnectionManager {
   private XAConnectionManager xaConnectionManager;
 
   public static final String JDBC_DRIVER_CLASS_NAME_KEY = "jdbcDriverClassName";
-  public static final String JDBC_SUB_PROTOCOL = "jdbcSubProtocol";
+  public static final String JDBC_SUB_PROTOCOL_KEY = "jdbcSubProtocol";
   public static final String HOST_KEY = "host";
   public static final String PORT_KEY = "port";
   public static final String DATABASE_KEY = "database";
@@ -48,7 +48,7 @@ public class DBConnectionManager implements SourcelessConnectionManager {
    */
   private void init(Properties properties) {
     this.jdbcDriverClassName = properties.getProperty(JDBC_DRIVER_CLASS_NAME_KEY);
-    this.jdbcSubProtocol = properties.getProperty(JDBC_SUB_PROTOCOL);
+    this.jdbcSubProtocol = properties.getProperty(JDBC_SUB_PROTOCOL_KEY);
     this.host = properties.getProperty(HOST_KEY);
     this.port = properties.getProperty(PORT_KEY);
     this.database = properties.getProperty(DATABASE_KEY);

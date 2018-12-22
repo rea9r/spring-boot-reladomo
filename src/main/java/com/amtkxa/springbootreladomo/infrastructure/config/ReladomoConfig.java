@@ -16,7 +16,6 @@ import java.io.InputStream;
  */
 @Configuration
 public class ReladomoConfig {
-
   private static int MAX_TRANSACTION_TIMEOUT = 60 * 1000; // (seconds)
 
   @PostConstruct
