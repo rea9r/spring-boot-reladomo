@@ -2,8 +2,6 @@ package com.amtkxa.springbootreladomo.domain.entity;
 
 import com.gs.fw.common.mithra.MithraSequence;
 
-import java.sql.Timestamp;
-
 public class ObjectSequence extends ObjectSequenceAbstract implements MithraSequence {
   public ObjectSequence() {
     super();

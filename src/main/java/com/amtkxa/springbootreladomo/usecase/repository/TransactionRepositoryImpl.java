@@ -1,7 +1,9 @@
 package com.amtkxa.springbootreladomo.usecase.repository;
 
 import com.amtkxa.springbootreladomo.adapter.view.TransactionView;
-import com.amtkxa.springbootreladomo.domain.entity.*;
+import com.amtkxa.springbootreladomo.domain.entity.Transaction;
+import com.amtkxa.springbootreladomo.domain.entity.TransactionFinder;
+import com.amtkxa.springbootreladomo.domain.entity.TransactionList;
 import com.amtkxa.springbootreladomo.domain.repository.TransactionRepository;
 import com.amtkxa.springbootreladomo.usecase.repository.operation.TransactionOperation;
 import lombok.NonNull;

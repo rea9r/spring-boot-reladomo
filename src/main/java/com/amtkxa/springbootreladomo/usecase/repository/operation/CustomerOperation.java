@@ -2,7 +2,6 @@ package com.amtkxa.springbootreladomo.usecase.repository.operation;
 
 import com.amtkxa.springbootreladomo.adapter.view.CustomerView;
 import com.amtkxa.springbootreladomo.domain.entity.CustomerFinder;
-import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;
 import com.gs.fw.common.mithra.finder.Operation;
 import org.springframework.stereotype.Component;
 

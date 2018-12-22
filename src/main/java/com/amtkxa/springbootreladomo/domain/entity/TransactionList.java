@@ -1,7 +1,8 @@
 package com.amtkxa.springbootreladomo.domain.entity;
 
 import com.gs.fw.finder.Operation;
-import java.util.*;
+
+import java.util.Collection;
 
 public class TransactionList extends TransactionListAbstract {
   public TransactionList() {

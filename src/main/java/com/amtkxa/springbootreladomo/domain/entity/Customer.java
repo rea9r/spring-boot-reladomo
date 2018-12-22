@@ -11,6 +11,12 @@ public class Customer extends CustomerAbstract {
     // You can call this constructor. You can also add new constructors.
   }
 
+  public Customer(Timestamp businessDate, String name, String country) {
+    super(businessDate);
+    this.setName(name);
+    this.setCountry(country);
+  }
+
   public Customer(CustomerView customerView) {
     super(customerView.getBusinessDate());
     this.setName(customerView.getName());

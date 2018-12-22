@@ -1,8 +1,7 @@
 package com.amtkxa.springbootreladomo.domain.entity;
 
-import com.amtkxa.springbootreladomo.adapter.view.TransactionView;
-import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;
 import com.amtkxa.springbootreladomo.adapter.view.AccountView;
+import com.amtkxa.springbootreladomo.adapter.view.TransactionView;
 
 import java.sql.Timestamp;
 
@@ -11,6 +10,12 @@ public class Account extends AccountAbstract {
     super(businessDate, processingDate);
     // You must not modify this constructor. Mithra calls this internally.
     // You can call this constructor. You can also add new constructors.
+  }
+
+  public Account(Timestamp businessDate, int customerId, double balance) {
+    super(businessDate);
+    this.setCustomerId(customerId);
+    this.setBalance(balance);
   }
 
   public Account(AccountView accountView) {

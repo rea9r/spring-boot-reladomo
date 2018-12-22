@@ -1,13 +1,11 @@
 package com.amtkxa.springbootreladomo.usecase.repository;
 
+import com.amtkxa.springbootreladomo.adapter.view.CustomerView;
 import com.amtkxa.springbootreladomo.domain.entity.Customer;
 import com.amtkxa.springbootreladomo.domain.entity.CustomerFinder;
 import com.amtkxa.springbootreladomo.domain.entity.CustomerList;
 import com.amtkxa.springbootreladomo.domain.repository.CustomerRepository;
-import com.amtkxa.springbootreladomo.adapter.view.CustomerView;
 import com.amtkxa.springbootreladomo.usecase.repository.operation.CustomerOperation;
-import com.gs.fw.common.mithra.MithraManagerProvider;
-import com.gs.fw.common.mithra.finder.Operation;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;

@@ -1,13 +1,12 @@
 package com.amtkxa.springbootreladomo.usecase.repository;
 
+import com.amtkxa.springbootreladomo.adapter.view.AccountView;
 import com.amtkxa.springbootreladomo.adapter.view.TransactionView;
 import com.amtkxa.springbootreladomo.domain.entity.Account;
 import com.amtkxa.springbootreladomo.domain.entity.AccountFinder;
 import com.amtkxa.springbootreladomo.domain.entity.AccountList;
 import com.amtkxa.springbootreladomo.domain.repository.AccountRepository;
-import com.amtkxa.springbootreladomo.adapter.view.AccountView;
 import com.amtkxa.springbootreladomo.usecase.repository.operation.AccountOperation;
-import com.gs.fw.common.mithra.MithraManagerProvider;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;

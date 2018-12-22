@@ -1,6 +1,8 @@
 package com.amtkxa.springbootreladomo.domain.entity;
+
 import com.gs.fw.finder.Operation;
-import java.util.*;
+
+import java.util.Collection;
 public class ObjectSequenceList extends ObjectSequenceListAbstract
 {
 	public ObjectSequenceList()
