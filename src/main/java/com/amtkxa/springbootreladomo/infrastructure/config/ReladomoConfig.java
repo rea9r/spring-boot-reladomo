@@ -17,18 +17,22 @@ import java.io.InputStream;
 @Configuration
 public class ReladomoConfig {
 
+  private static int MAX_TRANSACTION_TIMEOUT = 60 * 1000; // (seconds)
+
+  @PostConstruct
+  public void postConstruct( ) throws Exception {
+    initializeReladomo();
+    loadReladomoXMLFromClasspath("reladomo/config/MithraRuntimeConfiguration.xml");
+  }
+
   /**
    * Use the MithraManager class to load the configuration and initialize Reladomo.
    *
    * @throws Exception
    */
-  @PostConstruct
   public void initializeReladomo() throws Exception {
     MithraManager mithraManager = MithraManagerProvider.getMithraManager();
-    mithraManager.setTransactionTimeout(60 * 1000);
-    InputStream stream = loadReladomoXMLFromClasspath("reladomo/config/MithraRuntimeConfiguration.xml");
-    MithraManagerProvider.getMithraManager().readConfiguration(stream);
-    stream.close();
+    mithraManager.setTransactionTimeout(MAX_TRANSACTION_TIMEOUT);
   }
 
   /**
@@ -38,11 +42,12 @@ public class ReladomoConfig {
    * @return stream
    * @throws Exception
    */
-  private InputStream loadReladomoXMLFromClasspath(String fileName) throws Exception {
+  private void loadReladomoXMLFromClasspath(String fileName) throws Exception {
     InputStream stream = ReladomoConfig.class.getClassLoader().getResourceAsStream(fileName);
     if (stream == null) {
       throw new Exception("Failed to locate " + fileName + " in classpath");
     }
-    return stream;
+    MithraManagerProvider.getMithraManager().readConfiguration(stream);
+    stream.close();
   }
 }
