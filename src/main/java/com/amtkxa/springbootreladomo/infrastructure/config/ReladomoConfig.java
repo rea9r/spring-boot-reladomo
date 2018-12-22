@@ -20,7 +20,7 @@ public class ReladomoConfig {
   private static int MAX_TRANSACTION_TIMEOUT = 60 * 1000; // (seconds)
 
   @PostConstruct
-  public void postConstruct( ) throws Exception {
+  public void postConstruct() throws Exception {
     initializeReladomo();
     loadReladomoXMLFromClasspath("reladomo/config/MithraRuntimeConfiguration.xml");
   }
@@ -28,9 +28,8 @@ public class ReladomoConfig {
   /**
    * Use the MithraManager class to load the configuration and initialize Reladomo.
    *
-   * @throws Exception
    */
-  public void initializeReladomo() throws Exception {
+  public void initializeReladomo() {
     MithraManager mithraManager = MithraManagerProvider.getMithraManager();
     mithraManager.setTransactionTimeout(MAX_TRANSACTION_TIMEOUT);
   }
