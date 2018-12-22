@@ -40,6 +40,12 @@ public class DBConnectionManager implements SourcelessConnectionManager {
     return instance;
   }
 
+  /**
+   * Set the properties necessary to create a connection to database.
+   *
+   * @param properties Properties defined in MithraRuntime XML file.
+   * @apiNote This method is called after instance initialization.
+   */
   private void init(Properties properties) {
     this.jdbcDriverClassName = properties.getProperty(JDBC_DRIVER_CLASS_NAME_KEY);
     this.jdbcSubProtocol = properties.getProperty(JDBC_SUB_PROTOCOL);
@@ -53,7 +59,7 @@ public class DBConnectionManager implements SourcelessConnectionManager {
   }
 
   /**
-   * Set the properties necessary to create a connection to database.
+   * Set the value to XAConnectionManager.
    *
    * @apiNote XAConnectionManager is a utility class for a transactional connection manager.
    */
