@@ -25,8 +25,7 @@ public class ReladomoConfig {
   }
 
   /**
-   * Use the MithraManager class to load the configuration and initialize Reladomo.
-   *
+   * Initialize Reladomo using MithraManager class.
    */
   public void initializeReladomo() {
     MithraManager mithraManager = MithraManagerProvider.getMithraManager();
@@ -34,7 +33,7 @@ public class ReladomoConfig {
   }
 
   /**
-   * Returns an input stream for reading the Reladomo runtime configuration file.
+   * Load Reladomo runtime configuration file.
    *
    * @param fileName MithraRuntime XML file
    * @return stream
