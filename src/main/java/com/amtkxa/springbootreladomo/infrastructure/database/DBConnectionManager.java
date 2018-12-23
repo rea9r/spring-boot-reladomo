@@ -14,14 +14,14 @@ public class DBConnectionManager implements SourcelessConnectionManager {
   protected static DBConnectionManager instance;
   private XAConnectionManager xaConnectionManager;
 
-  public static final String JDBC_DRIVER_CLASS_NAME_KEY = "jdbcDriverClassName";
-  public static final String JDBC_SUB_PROTOCOL_KEY = "jdbcSubProtocol";
-  public static final String HOST_KEY = "host";
-  public static final String PORT_KEY = "port";
-  public static final String DATABASE_KEY = "database";
-  public static final String USERNAME_KEY = "username";
-  public static final String PASSWORD_KEY = "password";
-  public static final String TIMEZONE_KEY = "timeZone";
+  private static final String JDBC_DRIVER_CLASS_NAME_KEY = "jdbcDriverClassName";
+  private static final String JDBC_SUB_PROTOCOL_KEY = "jdbcSubProtocol";
+  private static final String HOST_KEY = "host";
+  private static final String PORT_KEY = "port";
+  private static final String DATABASE_KEY = "database";
+  private static final String USERNAME_KEY = "username";
+  private static final String PASSWORD_KEY = "password";
+  private static final String TIMEZONE_KEY = "timeZone";
 
   private String jdbcDriverClassName;
   private String jdbcSubProtocol;
