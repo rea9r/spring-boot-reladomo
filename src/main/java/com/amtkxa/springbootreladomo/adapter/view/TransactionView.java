@@ -2,6 +2,7 @@ package com.amtkxa.springbootreladomo.adapter.view;
 
 import com.amtkxa.springbootreladomo.domain.entity.TransactionType;
 import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -29,6 +30,7 @@ public class TransactionView implements Serializable {
   private TransactionType transactionType;
 
   @Builder.Default
+  @JsonFormat(pattern="yyyy-MM-dd", timezone = "Asia/Tokyo")
   @ApiModelProperty(value = "Date the change actually occurred.")
   private Timestamp transactionDate = DateUtils.getCurrentTimestamp();
 

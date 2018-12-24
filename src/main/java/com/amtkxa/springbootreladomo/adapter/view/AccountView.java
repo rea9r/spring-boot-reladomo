@@ -2,6 +2,7 @@ package com.amtkxa.springbootreladomo.adapter.view;
 
 import com.amtkxa.springbootreladomo.domain.entity.Account;
 import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,8 +26,9 @@ public class AccountView implements Serializable {
   @ApiModelProperty(value = "Customer's balance.")
   private double balance;
 
-  @ApiModelProperty(value = "Date the change actually occurred.")
   @Builder.Default
+  @JsonFormat(pattern="yyyy-MM-dd", timezone = "Asia/Tokyo")
+  @ApiModelProperty(value = "Date the change actually occurred.")
   private Timestamp businessDate = DateUtils.getCurrentTimestamp();
 
   public static AccountView fromAccount(Account account) {

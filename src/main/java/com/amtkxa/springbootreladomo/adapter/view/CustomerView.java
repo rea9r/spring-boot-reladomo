@@ -2,6 +2,7 @@ package com.amtkxa.springbootreladomo.adapter.view;
 
 import com.amtkxa.springbootreladomo.domain.entity.Customer;
 import com.amtkxa.springbootreladomo.infrastructure.util.DateUtils;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,6 +27,7 @@ public class CustomerView implements Serializable {
   private String country;
 
   @Builder.Default
+  @JsonFormat(pattern="yyyy-MM-dd", timezone = "Asia/Tokyo")
   @ApiModelProperty(value = "Date the change actually occurred.")
   private Timestamp businessDate = DateUtils.getCurrentTimestamp();
 
