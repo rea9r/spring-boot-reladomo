@@ -26,8 +26,8 @@ public class TransactionRepositoryImpl implements TransactionRepository {
 
   @Override
   public TransactionList create(TransactionView transactionView) {
-    Transaction tansactionLog = new Transaction(transactionView);
-    tansactionLog.cascadeInsert();
-    return new TransactionList(tansactionLog);
+    Transaction tansaction = new Transaction(transactionView);
+    tansaction.cascadeInsert();
+    return new TransactionList(tansaction);
   }
 }
