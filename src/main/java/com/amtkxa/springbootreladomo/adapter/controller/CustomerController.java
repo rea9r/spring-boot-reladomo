@@ -1,7 +1,8 @@
 package com.amtkxa.springbootreladomo.adapter.controller;
 
 import com.amtkxa.springbootreladomo.adapter.view.CustomerView;
-import com.amtkxa.springbootreladomo.usecase.web.interactor.CustomerUseCaseImpl;
+import com.amtkxa.springbootreladomo.usecase.web.inputport.CustomerUseCase;
+
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -13,30 +14,30 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CustomerController {
 
-  @NonNull private final CustomerUseCaseImpl customerUseCaseImpl;
+  @NonNull private final CustomerUseCase customerUseCase;
 
   @GetMapping(value = "/api/customer", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public List<? extends CustomerView> getAllCustomer() {
-    return customerUseCaseImpl.findAll();
+    return customerUseCase.findAll();
   }
 
   @GetMapping(value = "/api/customer/{customerId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public List<? extends CustomerView> getCustomerById(@PathVariable("customerId") int customerId) {
-    return customerUseCaseImpl.findByCustomerId(customerId);
+    return customerUseCase.findByCustomerId(customerId);
   }
 
   @PostMapping(value = "/api/customer", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public List<? extends CustomerView> createCustomer(@RequestBody CustomerView customerView) {
-    return customerUseCaseImpl.create(customerView);
+    return customerUseCase.create(customerView);
   }
 
   @PutMapping(value = "/api/customer", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public List<? extends CustomerView> updateCustomer(@RequestBody CustomerView customerView) {
-    return customerUseCaseImpl.update(customerView);
+    return customerUseCase.update(customerView);
   }
 
   @DeleteMapping(value = "/api/customer/{customerId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public void deleteCustomer(@PathVariable("customerId") int customerId) {
-    customerUseCaseImpl.terminate(customerId);
+    customerUseCase.terminate(customerId);
   }
 }

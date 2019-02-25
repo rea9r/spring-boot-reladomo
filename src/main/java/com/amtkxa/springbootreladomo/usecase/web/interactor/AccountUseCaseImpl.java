@@ -1,14 +1,14 @@
 package com.amtkxa.springbootreladomo.usecase.web.interactor;
 
-import com.amtkxa.springbootreladomo.adapter.presenter.AccountPresenterImpl;
 import com.amtkxa.springbootreladomo.adapter.view.AccountView;
 import com.amtkxa.springbootreladomo.adapter.view.TransactionView;
 import com.amtkxa.springbootreladomo.domain.entity.AccountList;
 import com.amtkxa.springbootreladomo.domain.entity.TransactionList;
 import com.amtkxa.springbootreladomo.domain.entity.TransactionType;
-import com.amtkxa.springbootreladomo.usecase.repository.AccountRepositoryImpl;
-import com.amtkxa.springbootreladomo.usecase.repository.TransactionRepositoryImpl;
+import com.amtkxa.springbootreladomo.domain.repository.AccountRepository;
+import com.amtkxa.springbootreladomo.domain.repository.TransactionRepository;
 import com.amtkxa.springbootreladomo.usecase.web.inputport.AccountUseCase;
+import com.amtkxa.springbootreladomo.usecase.web.outputport.AccountPresenter;
 import com.gs.fw.common.mithra.MithraManagerProvider;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -19,16 +19,16 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class AccountUseCaseImpl implements AccountUseCase {
-  @NonNull private final AccountRepositoryImpl accountRepositoryImpl;
-  @NonNull private final AccountPresenterImpl accountPresenter;
-  @NonNull private final TransactionRepositoryImpl transactionRepositoryImpl;
+  @NonNull private final AccountRepository accountRepository;
+  @NonNull private final AccountPresenter accountPresenter;
+  @NonNull private final TransactionRepository transactionRepository;
 
   /**
    * {@inheritDoc}
    */
   @Override
   public List<? extends AccountView> findByAccountId(int accountId) {
-    AccountList accountList = accountRepositoryImpl.findByAccountId(accountId);
+    AccountList accountList = accountRepository.findByAccountId(accountId);
     return accountPresenter.response(accountList);
   }
 
@@ -38,7 +38,7 @@ public class AccountUseCaseImpl implements AccountUseCase {
   @Override
   public List<? extends AccountView> create(AccountView accountView) {
     AccountList accountList = MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
-      AccountList txAccountList = accountRepositoryImpl.create(accountView);
+      AccountList txAccountList = accountRepository.create(accountView);
       return txAccountList;
     });
     return accountPresenter.response(accountList);
@@ -51,8 +51,8 @@ public class AccountUseCaseImpl implements AccountUseCase {
   public List<? extends AccountView> deposit(TransactionView transactionView) {
     AccountList accountList = MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
       transactionView.setTransactionType(TransactionType.DEPOSIT);
-      AccountList txAccountList = accountRepositoryImpl.deposit(transactionView);
-      TransactionList txTransactionList = transactionRepositoryImpl.create(transactionView);
+      AccountList txAccountList = accountRepository.deposit(transactionView);
+      TransactionList txTransactionList = transactionRepository.create(transactionView);
       return txAccountList;
     });
     return accountPresenter.response(accountList);
@@ -65,8 +65,8 @@ public class AccountUseCaseImpl implements AccountUseCase {
   public List<? extends AccountView> withdrawal(TransactionView transactionView) {
     AccountList accountList = MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
       transactionView.setTransactionType(TransactionType.WITHDRAWAL);
-      AccountList txAccountList = accountRepositoryImpl.withdrawal(transactionView);
-      TransactionList txTransactionList = transactionRepositoryImpl.create(transactionView);
+      AccountList txAccountList = accountRepository.withdrawal(transactionView);
+      TransactionList txTransactionList = transactionRepository.create(transactionView);
       return txAccountList;
     });
     return accountPresenter.response(accountList);
@@ -78,7 +78,7 @@ public class AccountUseCaseImpl implements AccountUseCase {
   @Override
   public void terminate(int accountId) {
     MithraManagerProvider.getMithraManager().executeTransactionalCommand((tx) -> {
-      accountRepositoryImpl.terminateByAccountId(accountId);
+      accountRepository.terminateByAccountId(accountId);
       return null;
     });
   }
