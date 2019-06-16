@@ -1,4 +1,6 @@
 # spring-boot-reladomo
+[![Build Status](https://travis-ci.com/amtkxa/spring-boot-reladomo.svg?branch=master)](https://travis-ci.com/amtkxa/spring-boot-reladomo)
+
 REST APIs implemented using Spring Boot, Reladomo
 
 ## Description
